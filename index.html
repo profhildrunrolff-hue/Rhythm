@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhythmus in Kunsttherapie und Kunstcoaching / Rhythm in Art Therapy and Art Coaching</title>
+<style>
+  :root {
+    --bg: #f4f1ec;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #3d3530;
+    --accent: #5c4530;
+    --line: #e0d9cc;
+    --chip: #ffffff;
+    --chip-on: #5c4530;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  .de, .en { }
+  body.lang-de .en { display: none; }
+  body.lang-en .de { display: none; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+  .topbar { display: flex; justify-content: flex-end; gap: 8px; margin: 0 0 10px; }
+  .lang-switch button {
+    font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+    background: var(--chip); color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 999px;
+    padding: 6px 14px; cursor: pointer;
+  }
+  .lang-switch button[aria-pressed="true"] { background: var(--chip-on); color: #fff; }
+  .eyebrow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 10px;
+  }
+  h1 { font-weight: normal; font-size: 36px; line-height: 1.2; margin: 0 0 16px; }
+  .lead { font-size: 18px; color: var(--muted); margin: 0 0 22px; }
+  .hint {
+    font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+  .filters button {
+    font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+    background: var(--chip); color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 999px;
+    padding: 7px 14px; cursor: pointer;
+  }
+  .filters button[aria-pressed="true"] { background: var(--chip-on); color: #fff; }
+  .grid {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin: 18px 0 30px;
+  }
+  .item {
+    background: var(--card);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 0;
+  }
+  .item[hidden] { display: none; }
+  .item button.head {
+    all: unset; box-sizing: border-box; cursor: pointer;
+    display: block; width: 100%; padding: 16px 18px;
+  }
+  .item button.head:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .medium {
+    font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent);
+  }
+  .title { font-size: 19px; margin: 4px 0 6px; color: var(--text); }
+  .tags { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--muted); }
+  .more {
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--accent);
+    margin-top: 8px; display: inline-block;
+  }
+  .body { padding: 0 18px 16px; }
+  .body[hidden] { display: none; }
+  .body p { margin: 10px 0; font-size: 16px; }
+  .body .label {
+    font-family: Arial, Helvetica, sans-serif; font-size: 12px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--accent); margin: 12px 0 2px;
+  }
+  .note-box {
+    background: var(--card); border-left: 4px solid var(--accent);
+    padding: 16px 20px; margin: 28px 0; border-radius: 4px;
+  }
+  .note-box p { margin: 8px 0; }
+  .teaser {
+    margin-top: 36px; padding: 18px 20px; border: 1px dashed var(--accent);
+    border-radius: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--muted);
+  }
+  .count { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--muted); margin: 0 0 6px; }
+  footer {
+    margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--muted);
+  }
+  a { color: var(--accent); }
+  @media (max-width: 600px) {
+    h1 { font-size: 29px; }
+    body { font-size: 16px; }
+  }
+</style>
+</head>
+<body class="lang-de">
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="lang-switch" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" aria-pressed="true">Deutsch</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+
+  <p class="eyebrow"><span class="de">earth-s Institut · Übersicht</span><span class="en">earth-s Institut · Overview</span></p>
+  <h1><span class="de">Rhythmus in Kunsttherapie und Kunstcoaching</span><span class="en">Rhythm in Art Therapy and Art Coaching</span></h1>
+  <p class="lead"><span class="de">Rhythmus ist eines der ältesten Mittel, mit denen Menschen Gefühle ordnen. Atem, Herzschlag, Gehen und Klopfen laufen im Takt, lange bevor Worte kommen. Diese Übersicht zeigt die wichtigsten Formen, was sie anregen und wann sie sich eignen. Klick auf eine Karte, um Details zu sehen.</span><span class="en">Rhythm is one of the oldest ways people bring order to their feelings. Breath, heartbeat, walking and tapping keep time long before words arrive. This overview shows the main forms, what they stir up and when they fit. Click a card to see the details.</span></p>
+
+  <div class="note-box">
+    <p><strong><span class="de">Diese Übersicht wächst.</span><span class="en">This overview is growing.</span></strong> <span class="de">Sie wird regelmäßig erweitert, jeweils mit einer neuen Gruppe von Formen. Stand Oktober 2026: Erweiterung 1, Rhythmus im Material, Körper und Paararbeit.</span><span class="en">It is extended regularly, each time with a new group of forms. Status October 2026: extension 1, rhythm in materials, body and pair work.</span></p>
+    <p><strong><span class="de">Nächste Erweiterung: Extended.</span><span class="en">Next extension: Extended.</span></strong> <span class="de">Warum Denken auch in Händen, Räumen und Werkzeugen stattfindet, und was das für Kunsttherapie und Kunstcoaching bedeutet. Der Hinweis dazu steht ganz unten.</span><span class="en">Why thinking also happens in hands, rooms and tools, and what that means for art therapy and art coaching. The note on this is at the bottom.</span></p>
+    <p><a href="https://bit.ly/3UDPd3H"><span class="de">Newsletter abonnieren</span><span class="en">Subscribe to the newsletter</span></a> <span class="de">, und du bekommst jede Erweiterung, sobald sie erscheint.</span><span class="en">, and you will get every extension as soon as it is published.</span></p>
+  </div>
+
+  <p class="hint"><span class="de">Nach Material filtern</span><span class="en">Filter by material</span></p>
+  <div class="filters" id="filter-medium" role="group" aria-label="Nach Material filtern / Filter by material">
+    <button type="button" data-filter="alle" aria-pressed="true"><span class="de">Alle</span><span class="en">All</span></button>
+    <button type="button" data-filter="malerisch" aria-pressed="false"><span class="de">Malerisch</span><span class="en">Painting</span></button>
+    <button type="button" data-filter="zeichnerisch" aria-pressed="false"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></button>
+    <button type="button" data-filter="plastisch" aria-pressed="false"><span class="de">Plastisch</span><span class="en">Sculpting</span></button>
+    <button type="button" data-filter="koerper" aria-pressed="false"><span class="de">Körper</span><span class="en">Body</span></button>
+    <button type="button" data-filter="paar" aria-pressed="false"><span class="de">Zu zweit</span><span class="en">Together</span></button>
+  </div>
+
+  <p class="hint"><span class="de">Oder nach dem, was gerade gebraucht wird</span><span class="en">Or by what is needed right now</span></p>
+  <div class="filters" id="filter-need" role="group" aria-label="Nach Anliegen filtern / Filter by need">
+    <button type="button" data-need="alle" aria-pressed="true"><span class="de">Alle</span><span class="en">All</span></button>
+    <button type="button" data-need="beruhigung" aria-pressed="false"><span class="de">Beruhigung</span><span class="en">Calm</span></button>
+    <button type="button" data-need="kraft" aria-pressed="false"><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></button>
+    <button type="button" data-need="erdung" aria-pressed="false"><span class="de">Erdung</span><span class="en">Grounding</span></button>
+    <button type="button" data-need="ordnung" aria-pressed="false"><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></button>
+    <button type="button" data-need="weite" aria-pressed="false"><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></button>
+    <button type="button" data-need="verbindung" aria-pressed="false"><span class="de">Verbindung</span><span class="en">Connection</span></button>
+  </div>
+
+  <p class="count" id="count"></p>
+
+  <div class="grid" id="grid">
+
+    <!-- MALERISCH -->
+    <article class="item" data-medium="malerisch" data-need="beruhigung weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Tupfen und Pinselreihen</span><span class="en">Dabbing and brush rows</span></div>
+        <div class="tags"><span class="de">Ruhe, Gleichmaß, Atem</span><span class="en">Calm, rhythm, breath</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Gleichmäßiges Tupfen auf nasses oder trockenes Papier, in Reihen oder Feldern. Die Bewegung kommt aus dem Handgelenk, nicht aus dem Arm. Gut für den Einstieg, weil das Ergebnis klein und überschaubar bleibt.</span><span class="en">Steady dabbing on wet or dry paper, in rows or fields. The movement comes from the wrist, not the arm. Good for starting, because the result stays small and manageable.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Einstieg, Unruhe, Zappeligkeit</span><span class="en">To begin, when restless or fidgety</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Bei Reizüberflutung das Tempo bremsen.</span><span class="en">If overstimulated, slow the tempo.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="malerisch" data-need="weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Wischen und Lasieren</span><span class="en">Wiping and glazing</span></div>
+        <div class="tags"><span class="de">Weite, Loslassen, Körperschwung</span><span class="en">Space, letting go, body swing</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Großflächiges Verteilen mit Schwamm, breitem Pinsel oder Lappen. Wiederholte Schichten entstehen im Takt des Körpers. Die Bewegung braucht Raum und Schwung, deshalb eignet sich das Format eher groß.</span><span class="en">Large areas spread with a sponge, wide brush or cloth. Layers build up in the body's rhythm. The movement needs room and swing, so a large format suits it best.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Enge im Körper, starkes Festhalten an Kontrolle</span><span class="en">When the body is tight and control is held hard</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Kann Gefühle aufwühlen. Einen Abschluss einplanen.</span><span class="en">This can stir feelings. Plan a closing moment.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="malerisch" data-need="weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Nass-in-nass Fließen</span><span class="en">Wet-on-wet flow</span></div>
+        <div class="tags"><span class="de">Kontrollverlust zulassen, Fließen</span><span class="en">Letting control go, flow</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Farbe fließt in angefeuchtetes Papier und setzt sich dort nach eigenen Gesetzen fest. Der Rhythmus liegt im Wechsel zwischen Eingreifen und Loslassen.</span><span class="en">Paint flows into damp paper and settles by its own rules. The rhythm lies in the shift between intervening and letting go.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Perfektionismus, Blockade</span><span class="en">Perfectionism, blockage</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Das Ergebnis bleibt offen. Eine Nachbesprechung ist wichtig.</span><span class="en">The result stays open. Talking it through afterwards matters.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="malerisch" data-need="weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Verlängerter Pinsel</span><span class="en">Extended brush</span></div>
+        <div class="tags"><span class="de">Größere Bewegung, Raum im Körper</span><span class="en">Bigger movement, room in the body</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein langer Stil, der die Hand auf Abstand zum Papier hält. Die Bewegung wird größer, weil sie aus Schulter und Oberkörper kommt. Man spürt die Weite selbst und sieht sie im Strich.</span><span class="en">A long handle that keeps the hand away from the paper. The movement grows larger because it comes from shoulder and upper body. You feel the space yourself and see it in the stroke.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Enges oder feines Arbeiten, Bedürfnis nach Weite</span><span class="en">Tight or fine work, or a need for space</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Platz im Raum sichern, Schulter schonen.</span><span class="en">Secure room in the space, protect the shoulder.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="malerisch" data-need="weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Pinsel am Bindfaden</span><span class="en">Brush on a string</span></div>
+        <div class="tags"><span class="de">Abgeben von Kontrolle, Pendeln, Zufall</span><span class="en">Letting go of control, swinging, chance</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Der Pinsel hängt an einer Schnur und pendelt oder wird geschwungen. Die Hand gibt nur den Impuls, der Rest entsteht durch Schwung, Schwerkraft und Zufall. Das Pendeln ist selbst ein Rhythmus.</span><span class="en">The brush hangs from a string and swings or pendulums. The hand gives only the impulse, the rest comes from momentum, gravity and chance. The swinging is a rhythm in itself.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Starkes Festhalten, Perfektionismus</span><span class="en">Strong holding on, perfectionism</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Ohnmachtsgefühle auffangen und kurz besprechen.</span><span class="en">Catch feelings of helplessness and talk them through briefly.</span></p>
+      </div>
+    </article>
+
+    <!-- ZEICHNERISCH -->
+    <article class="item" data-medium="zeichnerisch" data-need="ordnung beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Strichserien</span><span class="en">Stroke series</span></div>
+        <div class="tags"><span class="de">Konzentration, Ausdauer, Ordnung</span><span class="en">Focus, endurance, order</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Kurze, gleich lange Striche in einer Richtung oder mit wechselndem Druck. Bei Grübelneigung hilft die Zählbarkeit der Striche, den Gedankenlauf zu unterbrechen.</span><span class="en">Short strokes of equal length, in one direction or with changing pressure. When thoughts loop, counting the strokes helps interrupt the chain.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Gedankenkreisen, Grübeln</span><span class="en">Circling thoughts, rumination</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Kann monoton wirken. Variation einbauen.</span><span class="en">Can feel monotonous. Add variation.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="zeichnerisch" data-need="ordnung verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Zeichnen nach Gehör</span><span class="en">Drawing by ear</span></div>
+        <div class="tags"><span class="de">Verbindung von Hören und Hand</span><span class="en">Connecting hearing and hand</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein Metronom, Klatschen oder ein Musikstück gibt den Takt vor, die Hand folgt. Verbindet Hören und Bewegung und schult die Synchronisation.</span><span class="en">A metronome, clapping or a piece of music sets the beat, and the hand follows. It links listening and movement and trains synchronisation.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Schwierigkeiten, sich zu spüren</span><span class="en">Trouble sensing oneself</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Bei empfindlichem Gehör die Lautstärke anpassbar halten.</span><span class="en">With sensitive hearing, keep the volume adjustable.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="zeichnerisch" data-need="erdung beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Kreise und Spiralen</span><span class="en">Circles and spirals</span></div>
+        <div class="tags"><span class="de">Zentrierung, Rückkehr, Halt</span><span class="en">Centring, return, hold</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Kreisende Bewegungen mit Kohle oder Ölkreide, nach innen oder außen gerichtet. Geben Zentrierung und ein Gefühl von Rückkehr.</span><span class="en">Circling movements with charcoal or oil pastel, turning inward or outward. They offer centring and a sense of coming back.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Zerstreutheit, Suche nach Halt</span><span class="en">Scattered attention, looking for hold</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Bei Schwindel oder Enge im Brustraum Pausen einplanen.</span><span class="en">With dizziness or tightness in the chest, take breaks.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="zeichnerisch" data-need="verbindung weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Abwechselnd und gleichzeitig: beide Hände</span><span class="en">Alternating and together: both hands</span></div>
+        <div class="tags"><span class="de">Unterbrechung des Musters, Koordination</span><span class="en">Breaking the pattern, coordination</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Im Wechsel: ein Strich mit der dominanten Hand, dann einer mit der anderen. Gleichzeitig: beide Hände führen Striche zur selben Zeit, einmal spiegelbildlich, einmal frei. Die ungewohnte Hand darf zittrig und ungenau sein. Es geht um den Rhythmus, nicht um das Ergebnis.</span><span class="en">In turns: one stroke with the dominant hand, then one with the other. Together: both hands draw at the same time, once mirrored, once freely. The unfamiliar hand may be shaky and imprecise. The point is the rhythm, not the result.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Festhalten, zu viel Planung, der Kopf bleibt hängen</span><span class="en">Holding on, over-planning, the mind stuck</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Kleine Formate wählen, nach zwei Minuten beenden dürfen.</span><span class="en">Choose small formats, and allow stopping after two minutes.</span></p>
+      </div>
+    </article>
+
+    <!-- PLASTISCH -->
+    <article class="item" data-medium="plastisch" data-need="erdung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="title"><span class="de">Kneten</span><span class="en">Kneading</span></div>
+        <div class="tags"><span class="de">Erdung, Wärme, Kraft</span><span class="en">Grounding, warmth, strength</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ton oder Knetmasse in gleichmäßigen Bewegungen durchkneten, bis die Masse warm und geschmeidig wird. Wirkt beruhigend und erdend.</span><span class="en">Knead clay or modelling compound in steady movements until it turns warm and pliable. It calms and grounds.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Innere Unruhe, Gefühl des Auseinanderfallens</span><span class="en">Inner restlessness, feeling of falling apart</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Material pflegen, Hände zwischendurch wärmen.</span><span class="en">Look after the material, warm your hands in between.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="plastisch" data-need="kraft">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="title"><span class="de">Klopfen und Schlagen</span><span class="en">Tapping and striking</span></div>
+        <div class="tags"><span class="de">Entladung, eigene Kraft im Takt</span><span class="en">Release, own strength in rhythm</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Mit dem Holzlöffel oder der Faust in den Ton, im Takt. Schafft Entladung und Erfahrung von eigener Kraft im geordneten Rahmen.</span><span class="en">Tap or strike the clay with a wooden spoon or fist, in rhythm. It brings release and the experience of one's own strength within a clear frame.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Spannung, Wut im geschützten Rahmen</span><span class="en">Tension, anger within a protected frame</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Den Rahmen klar setzen, Tempo und Stärke begrenzen, Lautstärke bedenken.</span><span class="en">Set the frame clearly, limit tempo and force, and consider the volume.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="plastisch" data-need="beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="title"><span class="de">Rollen und Walzen</span><span class="en">Rolling and flattening</span></div>
+        <div class="tags"><span class="de">Gleichmaß, Form aus Wiederholung</span><span class="en">Evenness, form from repetition</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ton oder Masse mit dem Nudelholz oder den Händen in gleichmäßigen Bahnen ausrollen. Die Form entsteht aus dem Rhythmus und muss nicht geplant werden.</span><span class="en">Roll clay or compound in even strips with a rolling pin or hands. The form arises from the rhythm and does not have to be planned.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Zerstreutheit, Unentschlossenheit</span><span class="en">Scattered attention, indecision</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="plastisch" data-need="ordnung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="title"><span class="de">Schneiden und Reihen</span><span class="en">Cutting and rows</span></div>
+        <div class="tags"><span class="de">Ordnung, Abstand, Grenze</span><span class="en">Order, distance, boundary</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Mit Draht oder Messer gleichmäßige Scheiben oder Abstände herstellen. Schafft Ordnung und klare Grenzen.</span><span class="en">Make even slices or spacings with wire or a knife. It creates order and clear boundaries.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Themen rund um Abgrenzung</span><span class="en">Themes around setting limits</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Werkzeug nur nach Anleitung verwenden.</span><span class="en">Use tools only after instruction.</span></p>
+      </div>
+    </article>
+
+    <!-- KÖRPER -->
+    <article class="item" data-medium="koerper" data-need="beruhigung kraft">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="title"><span class="de">Klopfen im Herzschlagtakt</span><span class="en">Tapping in the heartbeat's pace</span></div>
+        <div class="tags"><span class="de">Puls fühlen, im selben Tempo klopfen</span><span class="en">Feel the pulse, tap at the same pace</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Klopfen auf Ton oder Papier geschieht oft fast von selbst in einem Tempo, das dem eigenen Herzschlag ähnelt. Man kann diesen Takt bewusst aufnehmen: zuerst den eigenen Puls fühlen, dann im selben Tempo klopfen, danach langsam verlangsamen.</span><span class="en">Tapping on clay or paper often happens almost by itself, at a pace close to the heartbeat. You can take this beat on purpose: first feel your pulse, then tap at the same pace, then slow down gradually.</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Bei Herz-Kreislauf-Beschwerden den Puls nicht als Taktvorgabe nutzen, sondern das Tempo frei wählen.</span><span class="en">With heart or circulation problems, don't use the pulse as a guide. Choose your own tempo.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="koerper" data-need="erdung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="title"><span class="de">Kneten als Bild für Verarbeitung</span><span class="en">Kneading as an image of processing</span></div>
+        <div class="tags"><span class="de">Etwas Festes wird weich und bekommt eine neue Form</span><span class="en">Something firm becomes soft and takes a new shape</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Kneten lässt sich als Bild für Verarbeitung erleben. Viele Teilnehmende greifen dieses Bild selbst auf, wenn sie von schwierigen Erfahrungen sprechen. Es ist eine Metapher für das Erleben, keine Aussage über körperliche Vorgänge.</span><span class="en">Kneading can be experienced as an image of processing. Many participants pick up this image themselves when they talk about difficult experiences. It is a metaphor for experience, not a statement about physical processes.</span></p>
+        <div class="label"><span class="de">Im Gespräch</span><span class="en">In conversation</span></div><p><span class="de">Welches Bild stellt sich beim Kneten ein, und was sagt es über den Umgang mit einer Belastung?</span><span class="en">Which image comes up while kneading, and what does it say about how someone handles a strain?</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="koerper" data-need="beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="title"><span class="de">Atem als Stütze des Rhythmus</span><span class="en">Breath as the support of rhythm</span></div>
+        <div class="tags"><span class="de">Ausatmen trägt den Rhythmus</span><span class="en">Exhaling carries the rhythm</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Mit jedem Ausatmen einen Strich ziehen oder einen Tupfer setzen, beim Einatmen die Hand heben. Die Ausatmung ist meist länger als die Einatmung und trägt den Rhythmus. Wer sich angespannt fühlt, kann sie bewusst verlängern.</span><span class="en">With each exhale draw a stroke or set a dab, and raise the hand on the inhale. The exhale is usually longer than the inhale and carries the rhythm. If you feel tense, you can lengthen the exhale on purpose.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="koerper" data-need="erdung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="title"><span class="de">Gehen und Füße</span><span class="en">Walking and feet</span></div>
+        <div class="tags"><span class="de">Fußsohlen spüren, Halt im Boden</span><span class="en">Feel the soles of the feet, hold in the ground</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Im Raum gehen, im eigenen Tempo, dann auf ein Signal hin stehen bleiben und die Füße spüren. Danach einen Tupfer oder Strich setzen, der den Schritt des Momentes zeigt. Im Sitzen funktioniert derselbe Gedanke über das Gewicht: Fersen und Zehen abwechselnd anheben.</span><span class="en">Walk around the room at your own pace, then stop on a signal and feel your feet. Then set a dab or stroke that shows the step of the moment. Sitting, the same idea works through weight: lift heels and toes alternately.</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Bei Schmerzen, Verletzungen oder Gleichgewichtsproblemen anpassen oder im Sitzen durchführen.</span><span class="en">With pain, injury or balance problems, adapt the exercise or do it seated.</span></p>
+      </div>
+    </article>
+
+    <!-- ZU ZWEIT -->
+    <article class="item" data-medium="paar" data-need="verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="title"><span class="de">Gemeinsames Blatt im Wechsel</span><span class="en">Shared sheet, taking turns</span></div>
+        <div class="tags"><span class="de">Abstimmung, Rücksicht, Tempo finden</span><span class="en">Attunement, consideration, finding tempo</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Zwei Personen zeichnen abwechselnd auf demselben Blatt, ohne Worte. Jede Linie nimmt Bezug auf die vorherige, und die Pausen werden zu einem Teil des Bildes.</span><span class="en">Two people draw in turns on the same sheet, without words. Each line responds to the one before, and the pauses become part of the picture.</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Platz für beide sichern, Anfang klar absprechen.</span><span class="en">Secure room for both, agree clearly on who starts.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="paar" data-need="verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="title"><span class="de">Spiegeln der Bewegung</span><span class="en">Mirroring movement</span></div>
+        <div class="tags"><span class="de">Einfühlung, Führen und Folgen</span><span class="en">Empathy, leading and following</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Eine Person führt eine langsame Bewegung über dem Blatt, die andere spiegelt sie. Nach einigen Minuten wechseln die Rollen.</span><span class="en">One person leads a slow movement over the sheet, the other mirrors it. After a few minutes the roles switch.</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Rollen wechseln, Berührung nur mit Absprache.</span><span class="en">Switch roles, touch only with agreement.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="paar" data-need="verbindung ordnung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="title"><span class="de">Ton weitergeben</span><span class="en">Passing the clay</span></div>
+        <div class="tags"><span class="de">Gegenseitigkeit, geteilte Verantwortung</span><span class="en">Reciprocity, shared responsibility</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein Stück Ton wird zwischen zwei Personen weitergegeben. Jede knetet einen Abschnitt im eigenen Rhythmus, danach gemeinsam im selben Takt.</span><span class="en">A piece of clay is passed between two people. Each kneads a section in their own rhythm, then both together in the same beat.</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Ton feucht halten, Einfluss beobachten.</span><span class="en">Keep the clay moist, notice your influence.</span></p>
+      </div>
+    </article>
+
+    <article class="item" data-medium="paar" data-need="verbindung beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="title"><span class="de">Atemtakt zu zweit</span><span class="en">Breath beat for two</span></div>
+        <div class="tags"><span class="de">Synchronisation, Nähe ohne Zwang</span><span class="en">Synchronisation, closeness without pressure</span></div>
+        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Beide Personen beobachten den Atem der anderen, ohne ihn zu kommentieren. Sobald sich ein gemeinsamer Rhythmus einstellt, zieht jeder Atemzug einen Abschnitt der Linie.</span><span class="en">Both people watch the other's breath without commenting. Once a shared rhythm settles, each breath draws a section of the line.</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Nähe und Blickkontakt selbst wählen lassen.</span><span class="en">Let each person choose their own closeness and eye contact.</span></p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="note-box">
+    <p><strong><span class="de">Vor jeder Übung gilt:</span><span class="en">Before every exercise:</span></strong> <span class="de">Rhythmus ist nicht für alle gleich gut. Ein ruhiger Takt kann einen wütenden Menschen noch wütender machen, ein schneller einen müden aufschrecken. Entscheidend ist, ob der Rhythmus zum gegenwärtigen Zustand passt.</span><span class="en">Rhythm does not suit everyone equally. A calm beat can make an angry person angrier, a fast one can startle a tired person. What matters is whether the rhythm fits the present state.</span></p>
+    <p><span class="de">Bei akuter Krise oder starker Überflutung zuerst stabilisieren, bevor rhythmisch intensiv gearbeitet wird. Bei Trauma-Erfahrung das Tempo selbst bestimmen lassen. Körperliche Berührung nur mit ausdrücklicher Zustimmung.</span><span class="en">In an acute crisis or strong overwhelm, stabilise first before working intensively with rhythm. With trauma experience, let the person set the tempo. Physical touch only with explicit consent.</span></p>
+  </div>
+
+  <div class="teaser">
+    <strong><span class="de">Demnächst: Erweiterung Extended</span><span class="en">Coming next: extension Extended</span></strong><br>
+    <span class="de">Das erweiterte Denken: Hände, Räume und Werkzeuge als Teil dessen, wie wir denken. Dazu Übungen, die das Denken über das Material sichtbar machen, und Hinweise für die Arbeit in Kunsttherapie und Kunstcoaching.</span><span class="en">Extended thinking: hands, rooms and tools as part of how we think. With exercises that make thinking through material visible, and notes for work in art therapy and art coaching.</span><br><br>
+    <span class="de">Wer die nächste Erweiterung nicht verpassen will, abonniert den Newsletter über den Link oben.</span><span class="en">If you don't want to miss the next extension, subscribe to the newsletter using the link above.</span>
+  </div>
+
+  <p class="count"><span class="de">Zuletzt erweitert: Oktober 2026 (Erweiterung 1, Rhythmus)</span><span class="en">Last extended: October 2026 (extension 1, rhythm)</span></p>
+
+  <footer>
+    <p>earth-s Institut · Prof. Hildrun Rolff · <span class="de">Stand: Oktober 2026</span><span class="en">Status: October 2026</span></p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var body = document.body;
+  var langButtons = Array.prototype.slice.call(document.querySelectorAll('.lang-switch button'));
+  var items = Array.prototype.slice.call(document.querySelectorAll('.item'));
+  var mediumButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-medium button'));
+  var needButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-need button'));
+  var count = document.getElementById('count');
+  var medium = 'alle';
+  var need = 'alle';
+
+  function setLang(lang) {
+    body.className = 'lang-' + lang;
+    document.documentElement.lang = lang;
+    langButtons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    updateCount();
+  }
+
+  function updateCount() {
+    var shown = items.filter(function (el) { return !el.hidden; }).length;
+    var de = document.body.className === 'lang-de';
+    if (de) {
+      count.textContent = shown + (shown === 1 ? ' Form' : ' Formen') + ' sichtbar';
+    } else {
+      count.textContent = shown + (shown === 1 ? ' form' : ' forms') + ' shown';
+    }
+  }
+
+  function apply() {
+    items.forEach(function (el) {
+      var mediumOk = medium === 'alle' || el.getAttribute('data-medium') === medium;
+      var needs = (el.getAttribute('data-need') || '').split(' ');
+      var needOk = need === 'alle' || needs.indexOf(need) !== -1;
+      el.hidden = !(mediumOk && needOk);
+    });
+    updateCount();
+  }
+
+  function setPressed(buttons, value, attr) {
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute(attr) === value ? 'true' : 'false');
+    });
+  }
+
+  langButtons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+  });
+
+  mediumButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      medium = b.getAttribute('data-filter');
+      setPressed(mediumButtons, medium, 'data-filter');
+      apply();
+    });
+  });
+
+  needButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      need = b.getAttribute('data-need');
+      setPressed(needButtons, need, 'data-need');
+      apply();
+    });
+  });
+
+  items.forEach(function (el) {
+    var head = el.querySelector('button.head');
+    var bodyEl = el.querySelector('.body');
+    var more = el.querySelector('.more');
+    head.addEventListener('click', function () {
+      var open = bodyEl.hidden;
+      bodyEl.hidden = !open;
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (more) {
+        var lang = document.body.className === 'lang-en' ? 'en' : 'de';
+        var label = open
+          ? (lang === 'en' ? 'Hide details' : 'Details ausblenden')
+          : (lang === 'en' ? 'Show details' : 'Details anzeigen');
+        more.querySelector('.' + lang).textContent = label;
+      }
+    });
+  });
+
+  var preferred = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+  setLang(preferred);
+  apply();
+})();
+</script>
+</body>
+</html>
