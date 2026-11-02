@@ -3,121 +3,158 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inspirationen aus der Praxis für die Praxis / Inspirations from practice for practice</title>
+<title>Inspirationen aus der Praxis</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
 <style>
-  :root {
-    --bg: #f4f1ec;
-    --card: #ffffff;
-    --text: #2b2b2b;
-    --muted: #3d3530;
-    --accent: #5c4530;
-    --line: #e0d9cc;
-    --chip: #ffffff;
-    --chip-on: #5c4530;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
-    line-height: 1.65;
-  }
-  .de, .en { }
-  body.lang-de .en { display: none; }
-  body.lang-en .de { display: none; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
-  .topbar { display: flex; justify-content: flex-end; gap: 8px; margin: 0 0 10px; }
-  .lang-switch button {
-    font-family: Arial, Helvetica, sans-serif; font-size: 14px;
-    background: var(--chip); color: var(--accent);
-    border: 1px solid var(--accent); border-radius: 999px;
-    padding: 6px 14px; cursor: pointer;
-  }
-  .lang-switch button[aria-pressed="true"] { background: var(--chip-on); color: #fff; }
-  .eyebrow {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--accent); margin: 0 0 10px;
-  }
-  h1 { font-weight: normal; font-size: 36px; line-height: 1.2; margin: 0 0 16px; }
-  .lead { font-size: 18px; color: var(--muted); margin: 0 0 22px; }
-  .hint {
-    font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--muted);
-    margin: 0 0 8px;
-  }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
-  .filters button {
-    font-family: Arial, Helvetica, sans-serif; font-size: 14px;
-    background: var(--chip); color: var(--accent);
-    border: 1px solid var(--accent); border-radius: 999px;
-    padding: 7px 14px; cursor: pointer;
-  }
-  .filters button[aria-pressed="true"] { background: var(--chip-on); color: #fff; }
-  .grid {
-    display: grid; gap: 14px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    margin: 18px 0 30px;
-    align-items: start;
-  }
-  .item {
-    background: var(--card);
-    border-left: 4px solid var(--accent);
-    border-radius: 4px;
-    padding: 0;
-  }
-  .item[hidden] { display: none; }
-  .item button.head {
-    all: unset; box-sizing: border-box; cursor: pointer;
-    display: block; width: 100%; padding: 16px 18px;
-  }
-  .item button.head:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .medium {
-    font-family: Arial, Helvetica, sans-serif; font-size: 12px;
-    letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent);
-  }
-  .title { font-size: 19px; margin: 4px 0 6px; color: var(--text); }
-  .tags { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--muted); }
-  .more {
-    font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--accent);
-    margin-top: 8px; display: inline-block;
-  }
-  .body { padding: 0 18px 16px; }
-  .body[hidden] { display: none; }
-  .body p { margin: 10px 0; font-size: 16px; }
-  .body .label {
-    font-family: Arial, Helvetica, sans-serif; font-size: 12px; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--accent); margin: 12px 0 2px;
-  }
-  .note-box {
-    background: var(--card); border-left: 4px solid var(--accent);
-    padding: 16px 20px; margin: 28px 0; border-radius: 4px;
-  }
-  .note-box p { margin: 8px 0; }
-  .teaser {
-    margin-top: 36px; padding: 18px 20px; border: 1px dashed var(--accent);
-    border-radius: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--muted);
-  }
-  .count { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--muted); margin: 0 0 6px; }
-  footer {
-    margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
-    font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--muted);
-  }
-  .ext-head { font-weight: normal; font-size: 26px; line-height: 1.25; margin: 44px 0 12px; padding-top: 24px; border-top: 1px solid var(--line); }
-  .sec-head { font-weight: normal; font-size: 26px; line-height: 1.25; margin: 26px 0 0; }
-  .photo { margin: 14px 0 4px; }
-  .photo img { display: block; width: 100%; height: auto; border-radius: 3px; }
-  .photo figcaption { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--muted); margin-top: 6px; font-style: italic; }
-  a { color: var(--accent); }
-  @media (max-width: 600px) {
-    h1 { font-size: 29px; }
-    body { font-size: 16px; }
-  }
+/* Layout: a studio wall of colour. Each extension owns one pigment, cards hang below their coloured banner. */
+:root{
+  --paper:#fbfaf7; --sheet:#ffffff; --ink:#1f1d1b; --soft:#4a4440; --rule:#e6e1d8;
+  --rhythmus:#c8432a; --rhythmus-t:#fbe6df;
+  --extended:#3c7a34; --extended-t:#e3f0dc;
+  --zufall:#2565a3; --zufall-t:#dde9f6;
+  --umhuellen:#a86a0c; --umhuellen-t:#f8ead0;
+  --n-beruhigung:#5b5fc0; --n-kraft:#d9680f; --n-erdung:#8a5a2b; --n-ordnung:#16807a; --n-weite:#2f95cf; --n-verbindung:#c2457d; --n-schutz:#7b3d86;
+  --on-color:#ffffff; --shadow:0 1px 2px rgba(40,30,20,.06),0 6px 18px rgba(40,30,20,.07);
+  --f-display:"Young Serif",Georgia,"Times New Roman",serif;
+  --f-body:"Figtree","Segoe UI",Helvetica,Arial,sans-serif;
+  --f-hand:"Caveat","Comic Sans MS",cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#17161a; --sheet:#222126; --ink:#f1eee9; --soft:#c4bdb5; --rule:#36343a;
+  --rhythmus:#ec6f55; --rhythmus-t:#3a2420; --extended:#7cbf6e; --extended-t:#203320; --zufall:#6aa6e6; --zufall-t:#1c2a3b; --umhuellen:#e3a548; --umhuellen-t:#352914;
+  --n-beruhigung:#9497ee; --n-kraft:#f2994a; --n-erdung:#d0a072; --n-ordnung:#4fc4bb; --n-weite:#6cc0ee; --n-verbindung:#ea7fb0; --n-schutz:#c58bd0;
+  --on-color:#141316; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --paper:#17161a; --sheet:#222126; --ink:#f1eee9; --soft:#c4bdb5; --rule:#36343a;
+  --rhythmus:#ec6f55; --rhythmus-t:#3a2420; --extended:#7cbf6e; --extended-t:#203320; --zufall:#6aa6e6; --zufall-t:#1c2a3b; --umhuellen:#e3a548; --umhuellen-t:#352914;
+  --n-beruhigung:#9497ee; --n-kraft:#f2994a; --n-erdung:#d0a072; --n-ordnung:#4fc4bb; --n-weite:#6cc0ee; --n-verbindung:#ea7fb0; --n-schutz:#c58bd0;
+  --on-color:#141316; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+body.lang-de .en{display:none} body.lang-en .de{display:none}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.ic{width:20px;height:20px;flex:none}
+a{color:var(--zufall)}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--n-weite);outline-offset:3px}
+
+.topbar{display:flex;justify-content:flex-end;margin-bottom:18px}
+.lang-switch{display:inline-flex;background:var(--sheet);border:1.5px solid var(--ink);border-radius:999px;padding:3px}
+.lang-switch button{border:0;background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 10px}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5.4vw,56px);line-height:1.08;margin:0 0 18px;text-wrap:balance;max-width:16ch}
+.lead{font-size:18px;color:var(--soft);margin:0 0 24px;max-width:62ch}
+
+/* extension tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:12px;margin:8px 0 22px}
+.tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:0;border-radius:18px;padding:18px 18px 16px;cursor:pointer;color:var(--on-color);min-height:132px;overflow:hidden;transition:transform .15s ease, box-shadow .15s ease;box-shadow:var(--shadow)}
+.tile:hover{transform:translateY(-2px) rotate(-.4deg)}
+.tile-rhythmus{background:var(--rhythmus)} .tile-extended{background:var(--extended)} .tile-zufall{background:var(--zufall)} .tile-umhuellen{background:var(--umhuellen)}
+.tile .t-ic{position:absolute;right:-10px;bottom:-14px;width:96px;height:96px;opacity:.28;stroke-width:1.3}
+.t-num{font-family:var(--f-hand);font-size:30px;line-height:1;font-weight:700}
+.t-name{font-family:var(--f-display);font-size:24px;line-height:1.15}
+.t-n{font-size:13px;font-weight:600;opacity:.92;margin-top:auto;display:flex;gap:6px;align-items:center}
+.t-new{background:var(--on-color);color:var(--umhuellen);border-radius:999px;padding:1px 9px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.tile-alle{background:var(--sheet);color:var(--ink);border:1.5px dashed var(--soft);box-shadow:none;justify-content:center;min-width:120px}
+.tile-alle .t-name{font-size:19px}
+.tile[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:3px}
+.tile[aria-pressed="false"]:not(.tile-alle){filter:saturate(.9)}
+.tiles.picked .tile[aria-pressed="false"]:not(.tile-alle){opacity:.45}
+@media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}.tile-alle{min-height:0;grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;padding:12px 18px}.tile-alle .t-n{margin:0}}
+
+.note-box{background:var(--sheet);border-radius:16px;padding:18px 22px;margin:0 0 26px;box-shadow:var(--shadow)}
+.note-box p{margin:6px 0;max-width:72ch}
+.intro-note{border:1.5px solid var(--rule);box-shadow:none}
+.nl-row{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:12px!important}
+.nl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:999px;padding:8px 16px;font-weight:600;font-size:15px}
+.nl-btn:hover{background:var(--rhythmus)}
+
+/* filters */
+.filter-panel{background:var(--sheet);border-radius:18px;padding:16px 18px 6px;margin:0 0 12px;box-shadow:var(--shadow)}
+.hint{font-family:var(--f-hand);font-size:22px;font-weight:700;color:var(--soft);margin:0 0 4px;line-height:1.1}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1.5px solid currentColor;background:transparent;border-radius:12px 12px 12px 3px;padding:6px 12px;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink);transition:transform .12s ease}
+.chip:hover{transform:translateY(-1px)}
+.chip .ic{width:18px;height:18px}
+.chip.c-alle{color:var(--soft)}
+.c-beruhigung{color:var(--n-beruhigung)} .c-kraft{color:var(--n-kraft)} .c-erdung{color:var(--n-erdung)} .c-ordnung{color:var(--n-ordnung)} .c-weite{color:var(--n-weite)} .c-verbindung{color:var(--n-verbindung)} .c-schutz{color:var(--n-schutz)}
+.chip-m{color:var(--ink)}
+.chip[aria-pressed="true"]{background:currentColor}
+.chip[aria-pressed="true"] > *{color:var(--sheet)}
+.count{font-size:14px;font-weight:600;color:var(--soft);margin:0 0 8px}
+
+/* bands */
+.ext-sec{margin-top:34px}
+.band{border-radius:22px;color:var(--on-color);position:relative;overflow:hidden;margin:0 0 4px}
+.band-rhythmus{background:var(--rhythmus)} .band-extended{background:var(--extended)} .band-zufall{background:var(--zufall)} .band-umhuellen{background:var(--umhuellen)}
+.band-in{display:flex;gap:18px;align-items:center;padding:22px 24px}
+.band-ic{width:64px;height:64px;stroke-width:1.4;flex:none}
+.band-num{font-family:var(--f-hand);font-size:24px;font-weight:700;margin:0;line-height:1}
+.band-title{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:2px 0 0}
+.band-sub{margin:2px 0 0;font-size:16px;opacity:.95}
+.ext-sec > .lead{margin:16px 0 8px;font-size:17px}
+
+/* steps */
+.steps{background:var(--zufall-t);border-radius:16px;padding:14px 18px 10px;margin:12px 0 4px}
+.steps-lab{margin:0 0 8px;font-weight:700;font-size:14px;letter-spacing:.04em}
+.steps ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.steps li{display:inline-flex;align-items:center;gap:8px;background:var(--sheet);border-radius:999px;padding:5px 14px 5px 5px;font-size:14px;font-weight:600}
+.st-n{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--zufall);color:var(--on-color);font-size:13px;font-weight:700}
+.steps li.hard{outline:2px dashed var(--zufall)}
+.hand{font-family:var(--f-hand);font-size:22px;color:var(--zufall);margin:6px 0 0;transform:rotate(-1.5deg);transform-origin:left}
+
+/* cards */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));margin:18px 0 22px;align-items:start}
+.item{--c:var(--rhythmus);--t:var(--rhythmus-t);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;background:linear-gradient(var(--c),var(--c)) top/100% 8px no-repeat,var(--sheet);padding-top:8px;min-width:0}
+.item[data-ext="extended"]{--c:var(--extended);--t:var(--extended-t)}
+.item[data-ext="zufall"]{--c:var(--zufall);--t:var(--zufall-t)}
+.item[data-ext="umhuellen"]{--c:var(--umhuellen);--t:var(--umhuellen-t)}
+.item[hidden]{display:none}
+.item button.head{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;column-gap:10px;width:100%;padding:14px 16px 14px}
+.item button.head:focus-visible{outline:3px solid var(--c);outline-offset:-3px;border-radius:12px}
+.head > *{grid-column:1}
+.medium{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.mic{width:22px;height:22px;background:var(--t);border-radius:50%;padding:3px}
+.title{font-family:var(--f-display);font-size:21px;line-height:1.2;margin:8px 0 4px;color:var(--ink)}
+.tags{font-size:14.5px;color:var(--soft)}
+.needs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.nd{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;border-radius:999px;padding:2px 9px 2px 5px;background:color-mix(in srgb,currentColor 12%,transparent)}
+.nd .ic{width:16px;height:16px}
+.nd-beruhigung{color:var(--n-beruhigung)} .nd-kraft{color:var(--n-kraft)} .nd-erdung{color:var(--n-erdung)} .nd-ordnung{color:var(--n-ordnung)} .nd-weite{color:var(--n-weite)} .nd-verbindung{color:var(--n-verbindung)} .nd-schutz{color:var(--n-schutz)}
+.plus{grid-column:2!important;grid-row:1/span 5;align-self:start;width:38px;height:38px;border-radius:50%;background:var(--c);position:relative;transition:transform .2s ease}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:2.5px;border-radius:2px;background:var(--on-color);transform:translate(-50%,-50%)}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.head:hover .plus{transform:scale(1.08)}
+.head[aria-expanded="true"] .plus{transform:rotate(45deg)}
+.body{padding:2px 16px 16px;border-top:1.5px dashed var(--rule)}
+.body[hidden]{display:none}
+.body p{margin:10px 0;font-size:16px}
+.body .label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c);background:var(--t);border-radius:6px;padding:1px 8px;margin:12px 0 0}
+.photo{margin:14px 0 4px}
+.photo img{display:block;width:100%;max-width:100%;height:auto;border-radius:12px}
+.photo figcaption{font-family:var(--f-hand);font-size:19px;color:var(--soft);margin-top:4px}
+
+.caution{position:relative;padding-left:62px;background:var(--rhythmus-t);box-shadow:none}
+.ext-sec[data-sec="extended"] .caution{background:var(--extended-t)}
+.ext-sec[data-sec="zufall"] .caution{background:var(--zufall-t)}
+.ext-sec[data-sec="umhuellen"] .caution{background:var(--umhuellen-t)}
+.hand-s{color:var(--umhuellen);font-size:26px;margin:4px 0 0}
+.warn-ic{position:absolute;left:20px;top:20px;width:28px;height:28px;color:var(--ink)}
+
+.teaser{margin-top:34px;padding:20px 22px;border:2px dashed var(--soft);border-radius:18px;font-size:15px;color:var(--soft)}
+.teaser strong{font-family:var(--f-display);font-weight:400;font-size:21px;color:var(--ink)}
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;color:var(--soft)}
+@media (max-width:600px){body{font-size:16px}.band-in{padding:18px}.band-ic{width:46px;height:46px}.caution{padding-left:22px;padding-top:56px}}
 </style>
 </head>
 <body class="lang-de">
-<div class="wrap">
+<div class="wrap"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="x-rhythmus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="13" r="2.2"/><circle cx="12" cy="11" r="3"/><circle cx="19.5" cy="13" r="2.2"/><path d="M3 19c3-1.5 5 1.5 9 0s6 1.5 9 0"/></symbol><symbol id="x-extended" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22C7 15 10 9 17 3"/><path d="M13.5 7.5l-3-1.5M15.5 5l1-3.2M15 6l3.5.5M12 10l-3-.5"/></symbol><symbol id="x-zufall" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2.5 4 4.5 6.5 4.5 9a4.5 4.5 0 0 1-9 0C7.5 8.5 9.5 6 12 2z"/><path d="M5 20.5h14"/><circle cx="7" cy="17.5" r=".8"/><circle cx="17.5" cy="17" r=".8"/><circle cx="12" cy="18.2" r=".6"/></symbol><symbol id="x-umhuellen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.8"/><path d="M12 6.2a5.8 5.8 0 1 1-5.4 3.7"/><path d="M12 2.5a9.5 9.5 0 1 1-8.6 5.5"/></symbol><symbol id="m-malerisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5l6 6-7.5 7.5-6-6z"/><path d="M7 11l-2.5 2.5c-1.6 1.6-.6 3.6-2 6 2.4-1.4 4.4-.4 6-2L11 15"/></symbol><symbol id="m-zeichnerisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.2-4.5L16 4.7a2.3 2.3 0 0 1 3.3 3.3L8.5 18.8z"/><path d="M14 7l3 3"/></symbol><symbol id="m-plastisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17c-2-3 0-7 3-8 1-3 6-4 8-1 3 0 5 3 3.5 6 1 3-2 5-5 4.5-2 1.5-6 1.5-9.5-1.5z"/><path d="M10 13c1 .8 2.5.8 3.5 0"/></symbol><symbol id="m-koerper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7.5v7M6 10.5l6-1.5 6 1.5M12 14.5l-3.5 7M12 14.5l3.5 7"/></symbol><symbol id="m-paar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="12" r="5.5"/><circle cx="15.5" cy="12" r="5.5"/></symbol><symbol id="n-beruhigung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c3-2.5 6 2.5 9 0s6 2.5 9 0M3 15c3-2.5 6 2.5 9 0s6 2.5 9 0"/></symbol><symbol id="n-kraft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.3 5.3l2.8 2.8M15.9 15.9l2.8 2.8M18.7 5.3l-2.8 2.8M8.1 15.9l-2.8 2.8"/><circle cx="12" cy="12" r="2.2"/></symbol><symbol id="n-erdung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 10h19"/><path d="M12 10v5c0 2-2 2.5-3 4M12 13c1.5 1 3 1.5 3.5 4M12 15c-2 0-4-1-5-2.5"/><path d="M12 10V4.5M12 6.5c1.5-1.8 3-2 4.5-1.5M12 7.5C10.5 6 9 5.8 7.5 6.5"/></symbol><symbol id="n-ordnung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M3.5 9.2h17M3.5 14.8h17M9.2 3.5v17M14.8 3.5v17"/></symbol><symbol id="n-weite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17c4-8 15-8 19 0"/><path d="M8 9.5c1.2-1.2 2.8-1.2 4 0 1.2-1.2 2.8-1.2 4 0"/></symbol><symbol id="n-verbindung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 14.5l5-5"/><path d="M11 6.5l1.5-1.5a4.2 4.2 0 0 1 6 6L17 12.5M13 17.5L11.5 19a4.2 4.2 0 0 1-6-6L7 11.5"/></symbol><symbol id="n-schutz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M12 17.5c-2-1.3-3-2.4-3-3.6a1.6 1.6 0 0 1 3-.8 1.6 1.6 0 0 1 3 .8c0 1.2-1 2.3-3 3.6z"/></symbol><symbol id="warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></symbol><symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol></svg>
 
   <div class="topbar">
     <div class="lang-switch" role="group" aria-label="Sprache / Language">
@@ -128,56 +165,65 @@
 
   <p class="eyebrow"><span class="de">earth-s Institut · Übersicht</span><span class="en">earth-s Institut · Overview</span></p>
   <h1><span class="de">Inspirationen aus der Praxis für die Praxis</span><span class="en">Inspirations from practice for practice</span></h1>
-  <p class="lead"><span class="de">Hier sammle ich Formen aus meiner Arbeit mit Material, Körper und Bild, die sich in der Praxis bewährt haben. Jede Erweiterung bringt eine neue Gruppe dazu, von Rhythmus über verlängerte Werkzeuge bis zum Zufall. Klick auf eine Karte, um Details zu sehen.</span><span class="en">Here I collect forms from my work with material, body and image that have proven themselves in practice. Each extension adds a new group, from rhythm and extended tools to chance. Click a card to see the details.</span></p>
+  <p class="lead"><span class="de">Hier sammle ich Formen aus meiner Arbeit mit Material, Körper und Bild, die sich in der Praxis bewährt haben. Jede Erweiterung bringt eine neue Gruppe dazu, von Rhythmus über verlängerte Werkzeuge und Zufall bis zum Umhüllen. Klick auf eine Karte, um Details zu sehen.</span><span class="en">Here I collect forms from my work with material, body and image that have proven themselves in practice. Each extension adds a new group, from rhythm, extended tools and chance to enfolding. Click a card to see the details.</span></p>
 
-  <div class="note-box">
-    <p><strong><span class="de">Diese Übersicht wächst.</span><span class="en">This overview is growing.</span></strong> <span class="de">Sie wird regelmäßig erweitert, jeweils mit einer neuen Gruppe von Formen. Stand November 2026: Erweiterung 1, Rhythmus im Material, Körper und Paararbeit. Erweiterung 2, Extended, Zeichnen mit verlängerten Werkzeugen. Erweiterung 3, ZuFall, Arbeiten mit Schwerkraft und Zufall.</span><span class="en">It is extended regularly, each time with a new group of forms. Status November 2026: extension 1, rhythm in materials, body and pair work. Extension 2, Extended, drawing with extended tools. Extension 3, Chance, working with gravity and chance.</span></p>
-    <p><strong><span class="de">Neu: Erweiterung 3, ZuFall.</span><span class="en">New: extension 3, Chance.</span></strong> <span class="de">Ton werfen und fallen lassen, gießen, tropfen, das Los ziehen, Spuren im Sand.</span><span class="en">Throwing and dropping clay, pouring, drops, drawing lots, traces in sand.</span> <a href="#zufall"><span class="de">Direkt zu Erweiterung 3</span><span class="en">Go to extension 3</span></a></p>
-        <p><a href="https://bit.ly/3UDPd3H"><span class="de">Newsletter abonnieren</span><span class="en">Subscribe to the newsletter</span></a> <span class="de">, und du bekommst jede Erweiterung, sobald sie erscheint.</span><span class="en">, and you will get every extension as soon as it is published.</span></p>
+  <div class="tiles" id="filter-ext" role="group" aria-label="Nach Erweiterung filtern / Filter by extension">
+    <button type="button" data-ext="alle" aria-pressed="true" class="tile tile-alle"><span class="t-name"><span class="de">Alle zeigen</span><span class="en">Show all</span></span><span class="t-n">51</span></button>
+    <button type="button" data-ext="rhythmus" aria-pressed="false" class="tile tile-rhythmus"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-rhythmus"/></svg><span class="t-num">1</span><span class="t-name"><span class="de">Rhythmus</span><span class="en">Rhythm</span></span><span class="t-n">22 <span class="de">Karten</span><span class="en">cards</span></span></button>
+    <button type="button" data-ext="extended" aria-pressed="false" class="tile tile-extended"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-extended"/></svg><span class="t-num">2</span><span class="t-name"><span class="de">Verlängern</span><span class="en">Extended</span></span><span class="t-n">9 <span class="de">Karten</span><span class="en">cards</span></span></button>
+    <button type="button" data-ext="zufall" aria-pressed="false" class="tile tile-zufall"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-zufall"/></svg><span class="t-num">3</span><span class="t-name"><span class="de">ZuFall</span><span class="en">Chance</span></span><span class="t-n">9 <span class="de">Karten</span><span class="en">cards</span></span></button>
+    <button type="button" data-ext="umhuellen" aria-pressed="false" class="tile tile-umhuellen"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-umhuellen"/></svg><span class="t-num">4</span><span class="t-name"><span class="de">Umhüllen</span><span class="en">Enfolding</span></span><span class="t-n">11 <span class="de">Karten</span><span class="en">cards</span><span class="t-new"><span class="de">neu</span><span class="en">new</span></span></span></button>
   </div>
 
-  <p class="hint"><span class="de">Nach Material filtern</span><span class="en">Filter by material</span></p>
+  <div class="note-box intro-note">
+    <p><strong><span class="de">Diese Übersicht wächst.</span><span class="en">This overview is growing.</span></strong> <span class="de">Sie wird regelmäßig erweitert, jeweils mit einer neuen Gruppe von Formen. Stand November 2026: Erweiterung 1, Rhythmus im Material, Körper und Paararbeit. Erweiterung 2, Verlängern, Zeichnen mit verlängerten Werkzeugen. Erweiterung 3, ZuFall, Arbeiten mit Schwerkraft und Zufall. Erweiterung 4, Umhüllen, von außen nach innen bergen.</span><span class="en">It is extended regularly, each time with a new group of forms. Status November 2026: extension 1, rhythm in materials, body and pair work. Extension 2, Extended, drawing with extended tools. Extension 3, Chance, working with gravity and chance. Extension 4, Enfolding, sheltering from the outside in.</span></p>
+    <p><strong><span class="de">Neu: Erweiterung 4, Umhüllen.</span><span class="en">New: extension 4, Enfolding.</span></strong> <span class="de">Eine Burg mit Schutzwall malen, ein Nest bauen, Punkt und Umkreis zeichnen und dir einen Schutzraum einrichten, in dem du dich erholen kannst.</span><span class="en">Painting a castle with a protective wall, building a nest, drawing point and circle, and furnishing a shelter where you can recover.</span> <a href="#umhuellen"><span class="de">Direkt zu Erweiterung 4</span><span class="en">Go to extension 4</span></a></p>
+        <p class="nl-row"><a class="nl-btn" href="https://earth-s-institute.com/newsletter"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#mail"/></svg><span class="de">Newsletter abonnieren</span><span class="en">Subscribe to the newsletter</span></a> <span class="de">, und du bekommst jede Erweiterung, sobald sie erscheint.</span><span class="en">, and you will get every extension as soon as it is published.</span></p>
+  </div>
+
+  <div class="filter-panel"><p class="hint"><span class="de">Nach Material filtern</span><span class="en">Filter by material</span></p>
   <div class="filters" id="filter-medium" role="group" aria-label="Nach Material filtern / Filter by material">
-    <button type="button" data-filter="alle" aria-pressed="true"><span class="de">Alle</span><span class="en">All</span></button>
-    <button type="button" data-filter="malerisch" aria-pressed="false"><span class="de">Malerisch</span><span class="en">Painting</span></button>
-    <button type="button" data-filter="zeichnerisch" aria-pressed="false"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></button>
-    <button type="button" data-filter="plastisch" aria-pressed="false"><span class="de">Plastisch</span><span class="en">Sculpting</span></button>
-    <button type="button" data-filter="koerper" aria-pressed="false"><span class="de">Körper</span><span class="en">Body</span></button>
-    <button type="button" data-filter="paar" aria-pressed="false"><span class="de">Zu zweit</span><span class="en">Together</span></button>
+    <button type="button" data-filter="alle" class="chip chip-m c-alle" aria-pressed="true"><span class="de">Alle</span><span class="en">All</span></button>
+    <button type="button" data-filter="malerisch" class="chip chip-m c-malerisch" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></button>
+    <button type="button" data-filter="zeichnerisch" class="chip chip-m c-zeichnerisch" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></button>
+    <button type="button" data-filter="plastisch" class="chip chip-m c-plastisch" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></button>
+    <button type="button" data-filter="koerper" class="chip chip-m c-koerper" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></button>
+    <button type="button" data-filter="paar" class="chip chip-m c-paar" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-paar"/></svg><span class="de">Zu zweit</span><span class="en">Together</span></button>
   </div>
 
   <p class="hint"><span class="de">Oder nach dem, was gerade gebraucht wird</span><span class="en">Or by what is needed right now</span></p>
   <div class="filters" id="filter-need" role="group" aria-label="Nach Anliegen filtern / Filter by need">
-    <button type="button" data-need="alle" aria-pressed="true"><span class="de">Alle</span><span class="en">All</span></button>
-    <button type="button" data-need="beruhigung" aria-pressed="false"><span class="de">Beruhigung</span><span class="en">Calm</span></button>
-    <button type="button" data-need="kraft" aria-pressed="false"><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></button>
-    <button type="button" data-need="erdung" aria-pressed="false"><span class="de">Erdung</span><span class="en">Grounding</span></button>
-    <button type="button" data-need="ordnung" aria-pressed="false"><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></button>
-    <button type="button" data-need="weite" aria-pressed="false"><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></button>
-    <button type="button" data-need="verbindung" aria-pressed="false"><span class="de">Verbindung</span><span class="en">Connection</span></button>
+    <button type="button" data-need="alle" class="chip chip-n c-alle" aria-pressed="true"><span class="de">Alle</span><span class="en">All</span></button>
+    <button type="button" data-need="beruhigung" class="chip chip-n c-beruhigung" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></button>
+    <button type="button" data-need="kraft" class="chip chip-n c-kraft" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-kraft"/></svg><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></button>
+    <button type="button" data-need="erdung" class="chip chip-n c-erdung" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></button>
+    <button type="button" data-need="ordnung" class="chip chip-n c-ordnung" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></button>
+    <button type="button" data-need="weite" class="chip chip-n c-weite" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></button>
+    <button type="button" data-need="verbindung" class="chip chip-n c-verbindung" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></button>
+    <button type="button" data-need="schutz" class="chip chip-n c-schutz" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></button>
   </div>
 
-  <p class="hint"><span class="de">Nach Erweiterung</span><span class="en">By extension</span></p>
-  <div class="filters" id="filter-ext" role="group" aria-label="Nach Erweiterung filtern / Filter by extension">
-    <button type="button" data-ext="alle" aria-pressed="true"><span class="de">Alle</span><span class="en">All</span></button>
-    <button type="button" data-ext="rhythmus" aria-pressed="false"><span class="de">1 · Rhythmus</span><span class="en">1 · Rhythm</span></button>
-    <button type="button" data-ext="extended" aria-pressed="false"><span class="de">2 · Extended</span><span class="en">2 · Extended</span></button>
-    <button type="button" data-ext="zufall" aria-pressed="false"><span class="de">3 · ZuFall</span><span class="en">3 · Chance</span></button>
-  </div>
+  
 
+  </div>
   <p class="count" id="count"></p>
 
-  <h2 class="sec-head" id="rhythmus"><span class="de">Erweiterung 1 · Rhythmus</span><span class="en">Extension 1 · Rhythm</span></h2>
+  <section id="rhythmus-section" class="ext-sec" data-sec="rhythmus"><header class="band band-rhythmus" id="rhythmus">
+    <div class="band-in"><svg class="ic band-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-rhythmus"/></svg>
+      <div><p class="band-num"><span class="de">Erweiterung 1</span><span class="en">Extension 1</span></p>
+      <h2 class="band-title"><span class="de">Rhythmus</span><span class="en">Rhythm</span></h2>
+      <p class="band-sub"><span class="de">Im Material, im Körper und zu zweit</span><span class="en">In material, body and pair work</span></p></div>
+    </div></header>
 
   <div class="grid" id="grid">
 
     <!-- MALERISCH -->
-    <article class="item" data-medium="malerisch" data-need="beruhigung weite">
+    <article class="item" data-ext="rhythmus" data-medium="malerisch" data-need="beruhigung weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Tupfen und Pinselreihen</span><span class="en">Dabbing and brush rows</span></div>
         <div class="tags"><span class="de">Ruhe, Gleichmaß, Atem</span><span class="en">Calm, rhythm, breath</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Gleichmäßiges Tupfen auf nasses oder trockenes Papier, in Reihen oder Feldern. Die Bewegung kommt aus dem Handgelenk, nicht aus dem Arm. Gut für den Einstieg, weil das Ergebnis klein und überschaubar bleibt.</span><span class="en">Steady dabbing on wet or dry paper, in rows or fields. The movement comes from the wrist, not the arm. Good for starting, because the result stays small and manageable.</span></p>
@@ -186,12 +232,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="malerisch" data-need="weite">
+    <article class="item" data-ext="rhythmus" data-medium="malerisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Wischen und Lasieren</span><span class="en">Wiping and glazing</span></div>
         <div class="tags"><span class="de">Weite, Loslassen, Körperschwung</span><span class="en">Space, letting go, body swing</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Großflächiges Verteilen mit Schwamm, breitem Pinsel oder Lappen. Wiederholte Schichten entstehen im Takt des Körpers. Die Bewegung braucht Raum und Schwung, deshalb eignet sich das Format eher groß.</span><span class="en">Large areas spread with a sponge, wide brush or cloth. Layers build up in the body's rhythm. The movement needs room and swing, so a large format suits it best.</span></p>
@@ -200,12 +246,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="malerisch" data-need="weite">
+    <article class="item" data-ext="rhythmus" data-medium="malerisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Nass-in-nass Fließen</span><span class="en">Wet-on-wet flow</span></div>
         <div class="tags"><span class="de">Kontrollverlust zulassen, Fließen</span><span class="en">Letting control go, flow</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Farbe fließt in angefeuchtetes Papier und setzt sich dort nach eigenen Gesetzen fest. Der Rhythmus liegt im Wechsel zwischen Eingreifen und Loslassen.</span><span class="en">Paint flows into damp paper and settles by its own rules. The rhythm lies in the shift between intervening and letting go.</span></p>
@@ -214,12 +260,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="malerisch" data-need="weite">
+    <article class="item" data-ext="rhythmus" data-medium="malerisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Verlängerter Pinsel</span><span class="en">Extended brush</span></div>
         <div class="tags"><span class="de">Größere Bewegung, Raum im Körper</span><span class="en">Bigger movement, room in the body</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein langer Stil, der die Hand auf Abstand zum Papier hält. Die Bewegung wird größer, weil sie aus Schulter und Oberkörper kommt. Man spürt die Weite selbst und sieht sie im Strich.</span><span class="en">A long handle that keeps the hand away from the paper. The movement grows larger because it comes from shoulder and upper body. You feel the space yourself and see it in the stroke.</span></p>
@@ -228,12 +274,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="malerisch" data-need="weite">
+    <article class="item" data-ext="rhythmus" data-medium="malerisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Pinsel am Bindfaden</span><span class="en">Brush on a string</span></div>
         <div class="tags"><span class="de">Abgeben von Kontrolle, Pendeln, Zufall</span><span class="en">Letting go of control, swinging, chance</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Der Pinsel hängt an einer Schnur und pendelt oder wird geschwungen. Die Hand gibt nur den Impuls, der Rest entsteht durch Schwung, Schwerkraft und Zufall. Das Pendeln ist selbst ein Rhythmus.</span><span class="en">The brush hangs from a string and swings or pendulums. The hand gives only the impulse, the rest comes from momentum, gravity and chance. The swinging is a rhythm in itself.</span></p>
@@ -242,13 +288,28 @@
       </div>
     </article>
 
-    <!-- ZEICHNERISCH -->
-    <article class="item" data-medium="zeichnerisch" data-need="ordnung beruhigung">
+
+    <article class="item" data-ext="rhythmus" data-medium="malerisch" data-need="beruhigung schutz">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Atemmalerei in Komplementärfarben</span><span class="en">Breath painting in complementary colours</span></div>
+        <div class="tags"><span class="de">Atem verlängern, zur Ruhe kommen</span><span class="en">Lengthening the breath, settling</span></div>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein Blatt im Querformat, dazu Blau und Orange. Beim langen Ausatmen zieht der Pinsel einen blauen Strich, beim kürzeren Einatmen einen orangen. Mit der Zeit verlängerst du die Striche ganz langsam, und der Atem wird mit ihnen länger. Die Komplementärfarben halten das Blatt lebendig, auch wenn es ruhig wird.</span><span class="en">A sheet in landscape format, with blue and orange. On the long out-breath the brush draws a blue stroke, on the shorter in-breath an orange one. Over time you lengthen the strokes very slowly, and the breath grows longer with them. The complementary colours keep the sheet alive even as it grows calm.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Unruhe, flacher Atem, Anspannung vor dem Einschlafen</span><span class="en">Restlessness, shallow breathing, tension before sleep</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Den Atem nie erzwingen. Wem schwindelig wird, der atmet wieder normal und malt kurze Striche.</span><span class="en">Never force the breath. Anyone who feels dizzy goes back to normal breathing and paints short strokes.</span></p>
+      </div>
+    </article>
+
+    <!-- ZEICHNERISCH -->
+    <article class="item" data-ext="rhythmus" data-medium="zeichnerisch" data-need="ordnung beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Strichserien</span><span class="en">Stroke series</span></div>
         <div class="tags"><span class="de">Konzentration, Ausdauer, Ordnung</span><span class="en">Focus, endurance, order</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Kurze, gleich lange Striche in einer Richtung oder mit wechselndem Druck. Bei Grübelneigung hilft die Zählbarkeit der Striche, den Gedankenlauf zu unterbrechen.</span><span class="en">Short strokes of equal length, in one direction or with changing pressure. When thoughts loop, counting the strokes helps interrupt the chain.</span></p>
@@ -257,12 +318,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="zeichnerisch" data-need="ordnung verbindung">
+    <article class="item" data-ext="rhythmus" data-medium="zeichnerisch" data-need="ordnung verbindung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Zeichnen nach Gehör</span><span class="en">Drawing by ear</span></div>
         <div class="tags"><span class="de">Verbindung von Hören und Hand</span><span class="en">Connecting hearing and hand</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein Metronom, Klatschen oder ein Musikstück gibt den Takt vor, die Hand folgt. Verbindet Hören und Bewegung und schult die Synchronisation.</span><span class="en">A metronome, clapping or a piece of music sets the beat, and the hand follows. It links listening and movement and trains synchronisation.</span></p>
@@ -271,12 +332,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="zeichnerisch" data-need="erdung beruhigung">
+    <article class="item" data-ext="rhythmus" data-medium="zeichnerisch" data-need="erdung beruhigung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Kreise und Spiralen</span><span class="en">Circles and spirals</span></div>
         <div class="tags"><span class="de">Zentrierung, Rückkehr, Halt</span><span class="en">Centring, return, hold</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Kreisende Bewegungen mit Kohle oder Ölkreide, nach innen oder außen gerichtet. Geben Zentrierung und ein Gefühl von Rückkehr.</span><span class="en">Circling movements with charcoal or oil pastel, turning inward or outward. They offer centring and a sense of coming back.</span></p>
@@ -285,12 +346,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="zeichnerisch" data-need="verbindung weite">
+    <article class="item" data-ext="rhythmus" data-medium="zeichnerisch" data-need="verbindung weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Abwechselnd und gleichzeitig: beide Hände</span><span class="en">Alternating and together: both hands</span></div>
         <div class="tags"><span class="de">Unterbrechung des Musters, Koordination</span><span class="en">Breaking the pattern, coordination</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Im Wechsel: ein Strich mit der dominanten Hand, dann einer mit der anderen. Gleichzeitig: beide Hände führen Striche zur selben Zeit, einmal spiegelbildlich, einmal frei. Die ungewohnte Hand darf zittrig und ungenau sein. Es geht um den Rhythmus, nicht um das Ergebnis.</span><span class="en">In turns: one stroke with the dominant hand, then one with the other. Together: both hands draw at the same time, once mirrored, once freely. The unfamiliar hand may be shaky and imprecise. The point is the rhythm, not the result.</span></p>
@@ -300,12 +361,12 @@
     </article>
 
     <!-- PLASTISCH -->
-    <article class="item" data-medium="plastisch" data-need="erdung">
+    <article class="item" data-ext="rhythmus" data-medium="plastisch" data-need="erdung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
         <div class="title"><span class="de">Kneten</span><span class="en">Kneading</span></div>
         <div class="tags"><span class="de">Erdung, Wärme, Kraft</span><span class="en">Grounding, warmth, strength</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ton oder Knetmasse in gleichmäßigen Bewegungen durchkneten, bis die Masse warm und geschmeidig wird. Wirkt beruhigend und erdend.</span><span class="en">Knead clay or modelling compound in steady movements until it turns warm and pliable. It calms and grounds.</span></p>
@@ -314,12 +375,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="plastisch" data-need="kraft">
+    <article class="item" data-ext="rhythmus" data-medium="plastisch" data-need="kraft">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
         <div class="title"><span class="de">Klopfen und Schlagen</span><span class="en">Tapping and striking</span></div>
         <div class="tags"><span class="de">Entladung, eigene Kraft im Takt</span><span class="en">Release, own strength in rhythm</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-kraft" title="Kraft und Entladung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-kraft"/></svg><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Mit dem Holzlöffel oder der Faust in den Ton, im Takt. Schafft Entladung und Erfahrung von eigener Kraft im geordneten Rahmen.</span><span class="en">Tap or strike the clay with a wooden spoon or fist, in rhythm. It brings release and the experience of one's own strength within a clear frame.</span></p>
@@ -328,12 +389,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="plastisch" data-need="beruhigung">
+    <article class="item" data-ext="rhythmus" data-medium="plastisch" data-need="beruhigung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
         <div class="title"><span class="de">Rollen und Walzen</span><span class="en">Rolling and flattening</span></div>
         <div class="tags"><span class="de">Gleichmaß, Form aus Wiederholung</span><span class="en">Evenness, form from repetition</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ton oder Masse mit dem Nudelholz oder den Händen in gleichmäßigen Bahnen ausrollen. Die Form entsteht aus dem Rhythmus und muss nicht geplant werden.</span><span class="en">Roll clay or compound in even strips with a rolling pin or hands. The form arises from the rhythm and does not have to be planned.</span></p>
@@ -341,12 +402,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="plastisch" data-need="ordnung">
+    <article class="item" data-ext="rhythmus" data-medium="plastisch" data-need="ordnung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
         <div class="title"><span class="de">Schneiden und Reihen</span><span class="en">Cutting and rows</span></div>
         <div class="tags"><span class="de">Ordnung, Abstand, Grenze</span><span class="en">Order, distance, boundary</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Mit Draht oder Messer gleichmäßige Scheiben oder Abstände herstellen. Schafft Ordnung und klare Grenzen.</span><span class="en">Make even slices or spacings with wire or a knife. It creates order and clear boundaries.</span></p>
@@ -356,12 +417,12 @@
     </article>
 
     <!-- KÖRPER -->
-    <article class="item" data-medium="koerper" data-need="beruhigung kraft">
+    <article class="item" data-ext="rhythmus" data-medium="koerper" data-need="beruhigung kraft">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></div>
         <div class="title"><span class="de">Klopfen im Herzschlagtakt</span><span class="en">Tapping in the heartbeat's pace</span></div>
         <div class="tags"><span class="de">Puls fühlen, im selben Tempo klopfen</span><span class="en">Feel the pulse, tap at the same pace</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-kraft" title="Kraft und Entladung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-kraft"/></svg><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Klopfen auf Ton oder Papier geschieht oft fast von selbst in einem Tempo, das dem eigenen Herzschlag ähnelt. Man kann diesen Takt bewusst aufnehmen: zuerst den eigenen Puls fühlen, dann im selben Tempo klopfen, danach langsam verlangsamen.</span><span class="en">Tapping on clay or paper often happens almost by itself, at a pace close to the heartbeat. You can take this beat on purpose: first feel your pulse, then tap at the same pace, then slow down gradually.</span></p>
@@ -369,12 +430,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="koerper" data-need="erdung">
+    <article class="item" data-ext="rhythmus" data-medium="koerper" data-need="erdung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></div>
         <div class="title"><span class="de">Kneten als Bild für Verarbeitung</span><span class="en">Kneading as an image of processing</span></div>
         <div class="tags"><span class="de">Etwas Festes wird weich und bekommt eine neue Form</span><span class="en">Something firm becomes soft and takes a new shape</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Kneten lässt sich als Bild für Verarbeitung erleben. Viele Teilnehmende greifen dieses Bild selbst auf, wenn sie von schwierigen Erfahrungen sprechen. Es ist eine Metapher für das Erleben, keine Aussage über körperliche Vorgänge.</span><span class="en">Kneading can be experienced as an image of processing. Many participants pick up this image themselves when they talk about difficult experiences. It is a metaphor for experience, not a statement about physical processes.</span></p>
@@ -382,24 +443,24 @@
       </div>
     </article>
 
-    <article class="item" data-medium="koerper" data-need="beruhigung">
+    <article class="item" data-ext="rhythmus" data-medium="koerper" data-need="beruhigung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></div>
         <div class="title"><span class="de">Atem als Stütze des Rhythmus</span><span class="en">Breath as the support of rhythm</span></div>
         <div class="tags"><span class="de">Ausatmen trägt den Rhythmus</span><span class="en">Exhaling carries the rhythm</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Mit jedem Ausatmen einen Strich ziehen oder einen Tupfer setzen, beim Einatmen die Hand heben. Die Ausatmung ist meist länger als die Einatmung und trägt den Rhythmus. Wer sich angespannt fühlt, kann sie bewusst verlängern.</span><span class="en">With each exhale draw a stroke or set a dab, and raise the hand on the inhale. The exhale is usually longer than the inhale and carries the rhythm. If you feel tense, you can lengthen the exhale on purpose.</span></p>
       </div>
     </article>
 
-    <article class="item" data-medium="koerper" data-need="erdung">
+    <article class="item" data-ext="rhythmus" data-medium="koerper" data-need="erdung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></div>
         <div class="title"><span class="de">Gehen und Füße</span><span class="en">Walking and feet</span></div>
         <div class="tags"><span class="de">Fußsohlen spüren, Halt im Boden</span><span class="en">Feel the soles of the feet, hold in the ground</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Im Raum gehen, im eigenen Tempo, dann auf ein Signal hin stehen bleiben und die Füße spüren. Danach einen Tupfer oder Strich setzen, der den Schritt des Momentes zeigt. Im Sitzen funktioniert derselbe Gedanke über das Gewicht: Fersen und Zehen abwechselnd anheben.</span><span class="en">Walk around the room at your own pace, then stop on a signal and feel your feet. Then set a dab or stroke that shows the step of the moment. Sitting, the same idea works through weight: lift heels and toes alternately.</span></p>
@@ -408,12 +469,12 @@
     </article>
 
     <!-- ZU ZWEIT -->
-    <article class="item" data-medium="paar" data-need="verbindung">
+    <article class="item" data-ext="rhythmus" data-medium="paar" data-need="verbindung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-paar"/></svg><span class="de">Zu zweit</span><span class="en">Together</span></div>
         <div class="title"><span class="de">Gemeinsames Blatt im Wechsel</span><span class="en">Shared sheet, taking turns</span></div>
         <div class="tags"><span class="de">Abstimmung, Rücksicht, Tempo finden</span><span class="en">Attunement, consideration, finding tempo</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Zwei Personen zeichnen abwechselnd auf demselben Blatt, ohne Worte. Jede Linie nimmt Bezug auf die vorherige, und die Pausen werden zu einem Teil des Bildes.</span><span class="en">Two people draw in turns on the same sheet, without words. Each line responds to the one before, and the pauses become part of the picture.</span></p>
@@ -421,12 +482,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="paar" data-need="verbindung">
+    <article class="item" data-ext="rhythmus" data-medium="paar" data-need="verbindung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-paar"/></svg><span class="de">Zu zweit</span><span class="en">Together</span></div>
         <div class="title"><span class="de">Spiegeln der Bewegung</span><span class="en">Mirroring movement</span></div>
         <div class="tags"><span class="de">Einfühlung, Führen und Folgen</span><span class="en">Empathy, leading and following</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Eine Person führt eine langsame Bewegung über dem Blatt, die andere spiegelt sie. Nach einigen Minuten wechseln die Rollen.</span><span class="en">One person leads a slow movement over the sheet, the other mirrors it. After a few minutes the roles switch.</span></p>
@@ -434,12 +495,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="paar" data-need="verbindung ordnung">
+    <article class="item" data-ext="rhythmus" data-medium="paar" data-need="verbindung ordnung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-paar"/></svg><span class="de">Zu zweit</span><span class="en">Together</span></div>
         <div class="title"><span class="de">Ton weitergeben</span><span class="en">Passing the clay</span></div>
         <div class="tags"><span class="de">Gegenseitigkeit, geteilte Verantwortung</span><span class="en">Reciprocity, shared responsibility</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein Stück Ton wird zwischen zwei Personen weitergegeben. Jede knetet einen Abschnitt im eigenen Rhythmus, danach gemeinsam im selben Takt.</span><span class="en">A piece of clay is passed between two people. Each kneads a section in their own rhythm, then both together in the same beat.</span></p>
@@ -447,12 +508,12 @@
       </div>
     </article>
 
-    <article class="item" data-medium="paar" data-need="verbindung beruhigung">
+    <article class="item" data-ext="rhythmus" data-medium="paar" data-need="verbindung beruhigung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zu zweit</span><span class="en">Together</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-paar"/></svg><span class="de">Zu zweit</span><span class="en">Together</span></div>
         <div class="title"><span class="de">Atemtakt zu zweit</span><span class="en">Breath beat for two</span></div>
         <div class="tags"><span class="de">Synchronisation, Nähe ohne Zwang</span><span class="en">Synchronisation, closeness without pressure</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Beide Personen beobachten den Atem der anderen, ohne ihn zu kommentieren. Sobald sich ein gemeinsamer Rhythmus einstellt, zieht jeder Atemzug einen Abschnitt der Linie.</span><span class="en">Both people watch the other's breath without commenting. Once a shared rhythm settles, each breath draws a section of the line.</span></p>
@@ -462,24 +523,30 @@
 
   </div>
 
-  <div class="note-box">
+  <div class="note-box caution"><svg class="ic warn-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#warn"/></svg>
     <p><strong><span class="de">Vor jeder Übung gilt:</span><span class="en">Before every exercise:</span></strong> <span class="de">Rhythmus ist nicht für alle gleich gut. Ein ruhiger Takt kann einen wütenden Menschen noch wütender machen, ein schneller einen müden aufschrecken. Entscheidend ist, ob der Rhythmus zum gegenwärtigen Zustand passt.</span><span class="en">Rhythm does not suit everyone equally. A calm beat can make an angry person angrier, a fast one can startle a tired person. What matters is whether the rhythm fits the present state.</span></p>
     <p><span class="de">Bei akuter Krise oder starker Überflutung zuerst stabilisieren, bevor rhythmisch intensiv gearbeitet wird. Bei Trauma-Erfahrung das Tempo selbst bestimmen lassen. Körperliche Berührung nur mit ausdrücklicher Zustimmung.</span><span class="en">In an acute crisis or strong overwhelm, stabilise first before working intensively with rhythm. With trauma experience, let the person set the tempo. Physical touch only with explicit consent.</span></p>
   </div>
 
 
-  <section id="ext-section">
-  <h2 class="ext-head" id="extended"><span class="de">Erweiterung 2 · Extended. Zeichnen mit verlängerten Werkzeugen</span><span class="en">Extension 2 · Extended. Drawing with extended tools</span></h2>
+  </section>
+<section id="ext-section" class="ext-sec" data-sec="extended">
+  <header class="band band-extended" id="extended">
+    <div class="band-in"><svg class="ic band-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-extended"/></svg>
+      <div><p class="band-num"><span class="de">Erweiterung 2</span><span class="en">Extension 2</span></p>
+      <h2 class="band-title"><span class="de">Verlängern</span><span class="en">Extended</span></h2>
+      <p class="band-sub"><span class="de">Zeichnen mit verlängerten Werkzeugen</span><span class="en">Drawing with extended tools</span></p></div>
+    </div></header>
   <p class="lead"><span class="de">Denken endet nicht an der Hand. Sobald ein Werkzeug zwischen dir und dem Papier liegt, wird es Teil deiner Wahrnehmung. Fast alles kann dieses Werkzeug sein: ein Halm, ein Zweig, ein Bündel Gras, eine Feder, eine raue Oberfläche unter dem Blatt. Jedes Material antwortet anders. Die Spur zeigt dir, was zwischen Hand und Material passiert ist.</span><span class="en">Thinking reaches past the hand. As soon as a tool sits between you and the paper, it becomes part of how you perceive. Almost anything can be that tool, a grass stalk, a twig, a bundle of grass, a feather, a rough surface under the sheet. Every material answers in its own way. The trace shows you what happened between hand and material.</span></p>
 
   <div class="grid" id="grid-ext">
 
     <article class="item" data-ext="extended" data-medium="zeichnerisch" data-need="beruhigung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Einzelner glatter Halm</span><span class="en">Single smooth stalk</span></div>
         <div class="tags"><span class="de">Zartheit, feines Hinfühlen</span><span class="en">Tenderness, sensing your way in</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Dünne, schnelle Linien, die leicht springen und abreißen. Er verlangt eine ruhige Hand und belohnt sie mit feinen Spuren.</span><span class="en">Thin, quick lines that jump and break off easily. It asks for a calm hand and rewards it with fine traces.</span></p>
@@ -490,10 +557,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="malerisch" data-need="beruhigung verbindung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Halm mit haarigen Grannen</span><span class="en">Stalk with hairy awns</span></div>
         <div class="tags"><span class="de">Weichheit, leises Ansetzen</span><span class="en">Softness, a quiet start</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Der pelzige Kopf saugt sich voll und gibt die Tusche weich und unregelmäßig ab. Gut zum Tupfen, Streicheln, leisen Ansetzen. Besonders schön ist Hasenschwanzgras.</span><span class="en">The furry head soaks up ink and releases it softly and unevenly. Good for dabbing, stroking, setting down gently. Hare&#x27;s tail grass is especially lovely.</span></p>
@@ -504,10 +571,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="malerisch" data-need="kraft">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Gebundener Halmpinsel</span><span class="en">Bound grass brush</span></div>
         <div class="tags"><span class="de">Kraft, Entladung</span><span class="en">Strength, release</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-kraft" title="Kraft und Entladung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-kraft"/></svg><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Mehrere Halme, mit einem Faden zusammengebunden. Satte, breite Flächen, die plötzlich aufreißen und in feinen Fasern auslaufen. Er lädt dazu ein, kräftig zuzuschlagen.</span><span class="en">Several stalks tied together with thread. Rich, broad patches that suddenly tear open and run out into fine fibres. It invites you to strike hard.</span></p>
@@ -519,10 +586,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="zeichnerisch" data-need="ordnung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Zweig oder Stock</span><span class="en">Twig or stick</span></div>
         <div class="tags"><span class="de">Widerstand, Eigenwille des Materials</span><span class="en">Resistance, the material&#x27;s own will</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein Stück Holz, in Tusche getaucht. Es kratzt, stockt und hinterlässt harte Kanten. Die Hand muss sich auf ein Werkzeug einlassen, das kaum nachgibt.</span><span class="en">A piece of wood dipped in ink. It scratches, stalls and leaves hard edges. The hand has to engage with a tool that barely gives.</span></p>
@@ -532,10 +599,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="zeichnerisch" data-need="erdung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Frottage</span><span class="en">Frottage</span></div>
         <div class="tags"><span class="de">Spüren durch das Papier</span><span class="en">Feeling through the paper</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein Blatt liegt auf einer rauen Fläche, Rinde, Holz, Stein oder Stoff. Mit Kreide, Grafit oder Wachs reibst du darüber, und die Struktur taucht auf. Die Oberfläche zeichnet mit. Die Hand tastet durch das Papier hindurch und findet, was darunter liegt.</span><span class="en">A sheet lies on a rough surface, bark, wood, stone or fabric. You rub over it with crayon, graphite or wax, and the structure appears. The surface draws along with you. Your hand feels through the paper and finds what lies beneath.</span></p>
@@ -545,10 +612,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="zeichnerisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Fundstücke</span><span class="en">Found objects</span></div>
         <div class="tags"><span class="de">Neugier, Spiel</span><span class="en">Curiosity, play</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Feder, Gabel, Korken, Schnur oder was gerade herumliegt. Jedes Fundstück macht seine eigene Spur. Die Frage lautet dann, welches Werkzeug heute zu dir passt.</span><span class="en">A feather, a fork, a cork, a piece of string, whatever is lying around. Each object makes its own trace. The question then becomes which tool fits you today.</span></p>
@@ -558,10 +625,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="malerisch" data-need="verbindung beruhigung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Tierhaarpinsel</span><span class="en">Animal-hair brush</span></div>
         <div class="tags"><span class="de">Zärtlichkeit, Nähe</span><span class="en">Tenderness, closeness</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ausgebürstete Haare von Katze oder Hund, mit einem Faden an ein Stöckchen gebunden. Der Pinsel ist winzig und überraschend weich. Du malst mit etwas, das du gestreichelt hast.</span><span class="en">Brushed-out hair from a cat or dog, tied to a little stick with thread. The brush is tiny and surprisingly soft. You paint with something you once stroked.</span></p>
@@ -571,10 +638,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="malerisch" data-need="verbindung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Eigene Haare</span><span class="en">Your own hair</span></div>
         <div class="tags"><span class="de">Das Eigene, Selbstbild</span><span class="en">What&#x27;s yours, self-image</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Eine Strähne der eigenen Haare, gebunden und in Tusche getaucht. Die Spur kommt buchstäblich von dir selbst. Das kann berühren und manchmal auch irritieren.</span><span class="en">A strand of your own hair, tied and dipped in ink. The trace quite literally comes from you. That can be moving, and sometimes unsettling.</span></p>
@@ -584,10 +651,10 @@
     </article>
     <article class="item" data-ext="extended" data-medium="malerisch" data-need="kraft">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Bürsten</span><span class="en">Brushes</span></div>
         <div class="tags"><span class="de">Struktur, Entladung</span><span class="en">Structure, release</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-kraft" title="Kraft und Entladung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-kraft"/></svg><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Haarbürste, Spülbürste, Schuhbürste, Zahnbürste. Jede Bürste zieht viele Linien auf einmal. Gestrichen entstehen Bahnen, getupft Felder, über den Daumen abgestreift ein feiner Sprühregen.</span><span class="en">Hairbrush, dish brush, shoe brush, toothbrush. Every brush pulls many lines at once. Stroked, it makes tracks. Dabbed, it makes fields. Flicked over your thumb, it makes a fine spray.</span></p>
@@ -598,24 +665,30 @@
 
   </div>
 
-  <div class="note-box">
+  <div class="note-box caution"><svg class="ic warn-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#warn"/></svg>
     <p><strong><span class="de">Vor jeder Übung mit verlängerten Werkzeugen</span><span class="en">Before every exercise with extended tools</span></strong></p>
     <p><span class="de">Das Werkzeug soll zur Verfassung passen. Wer gerade sehr angespannt ist, findet über einen weichen Halm oft schwer hinein und braucht zuerst etwas Kräftiges. Wer erschöpft ist, wird mit einem widerständigen Zweig eher müder. Wähle das Material nach dem, was jetzt dran ist.</span><span class="en">The tool should fit the state you're in. Someone very tense often struggles to get going with a soft stalk and needs something strong first. Someone exhausted tends to grow more tired with a resistant twig. Choose the material by what today is asking for.</span></p>
   </div>
   </section>
 
-  <section id="zufall-section">
-  <h2 class="ext-head" id="zufall"><span class="de">Erweiterung 3 · ZuFall. Was einem zufällt</span><span class="en">Extension 3 · Chance. What falls to you</span></h2>
+  <section id="zufall-section" class="ext-sec" data-sec="zufall">
+  <header class="band band-zufall" id="zufall">
+    <div class="band-in"><svg class="ic band-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-zufall"/></svg>
+      <div><p class="band-num"><span class="de">Erweiterung 3</span><span class="en">Extension 3</span></p>
+      <h2 class="band-title"><span class="de">ZuFall</span><span class="en">Chance</span></h2>
+      <p class="band-sub"><span class="de">Was einem zufällt</span><span class="en">What falls to you</span></p></div>
+    </div></header>
   <p class="lead"><span class="de">Zufall heißt oft nur, dass etwas passiert ist und du nicht weißt, wie es dir zugefallen ist. In dieser Erweiterung arbeitest du mit Schwerkraft und Zufall. Du setzt den Rahmen, also Material, Höhe, Untergrund und Moment. Dann ziehst du die Hand zurück und schaust, was dir zufällt. Die Spur entsteht zwischen deiner Entscheidung und dem, was das Material daraus macht.</span><span class="en">Chance often just means something happened and you have no idea how it fell to you. In this extension you work with gravity and chance. You set the frame, meaning material, height, ground and moment. Then you pull your hand back and watch what falls to you. The trace appears between your decision and what the material makes of it.</span></p>
-  <p class="lead"><span class="de">Fünf Schritte, frei nach der Malerin Pat Steir. Rahmen setzen. Impuls geben. Hand zurückziehen. Schauen, ohne gleich zu bewerten. Antworten. Der dritte Schritt ist der schwerste.</span><span class="en">Five steps, loosely after the painter Pat Steir. Set the frame. Give the impulse. Pull your hand back. Watch, and hold off judging. Respond. Step three is the hardest.</span></p>
+  <div class="steps"><p class="steps-lab"><span class="de">Fünf Schritte, frei nach der Malerin Pat Steir</span><span class="en">Five steps, loosely after the painter Pat Steir</span></p>
+  <ol><li class=""><span class="st-n">1</span><span class="de">Rahmen setzen</span><span class="en">Set the frame</span></li><li class=""><span class="st-n">2</span><span class="de">Impuls geben</span><span class="en">Give the impulse</span></li><li class="hard"><span class="st-n">3</span><span class="de">Hand zurückziehen</span><span class="en">Pull your hand back</span></li><li class=""><span class="st-n">4</span><span class="de">Schauen, ohne gleich zu bewerten</span><span class="en">Watch, and hold off judging</span></li><li class=""><span class="st-n">5</span><span class="de">Antworten</span><span class="en">Respond</span></li></ol><p class="hand"><span class="de">Der dritte Schritt ist der schwerste.</span><span class="en">Step three is the hardest.</span></p></div>
 
   <div class="grid" id="grid-zufall">
     <article class="item" data-ext="zufall" data-medium="plastisch" data-need="kraft">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
         <div class="title"><span class="de">Ton werfen</span><span class="en">Throwing clay</span></div>
         <div class="tags"><span class="de">Wut, Entladung</span><span class="en">Anger, release</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-kraft" title="Kraft und Entladung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-kraft"/></svg><span class="de">Kraft und Entladung</span><span class="en">Strength and release</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein Klumpen, mit Schwung aufs Brett geworfen. Er klatscht, platzt auf, verformt sich bei jedem Wurf neu. Laut darf es werden.</span><span class="en">A lump thrown hard onto the board. It slaps, bursts open, changes shape with every throw. It's allowed to get loud.</span></p>
@@ -625,10 +698,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="plastisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
         <div class="title"><span class="de">Ton fallen lassen</span><span class="en">Dropping clay</span></div>
         <div class="tags"><span class="de">Loslassen, Vertrauen</span><span class="en">Letting go, trust</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein faustgroßer Klumpen auf Knie-, Hüft- oder Schulterhöhe. Die Hand öffnet sich, mehr passiert nicht. Was unten liegt, hat niemand geformt. Danach eine einzige Antwort, ein Daumendruck oder eine Rille.</span><span class="en">A fist-sized lump held at knee, hip or shoulder height. The hand opens, and that's all. What lands below, nobody shaped. Then one single response, a press of the thumb or a groove.</span></p>
@@ -638,10 +711,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="plastisch" data-need="erdung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
         <div class="title"><span class="de">Untergründe wechseln</span><span class="en">Changing the ground</span></div>
         <div class="tags"><span class="de">Halt, Wahl</span><span class="en">Holding, choice</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Derselbe Klumpen fällt auf Holz, Karton, ein altes Tuch, eine Schale Sand. Jeder Boden antwortet anders. Du merkst, dass du den Fall nie bestimmst, den Untergrund aber schon.</span><span class="en">The same lump falls onto wood, cardboard, an old cloth, a bowl of sand. Every ground answers differently. You notice that the fall is never yours to decide, while the ground always is.</span></p>
@@ -651,10 +724,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="malerisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Gießen</span><span class="en">Pouring</span></div>
         <div class="tags"><span class="de">Fließen lassen</span><span class="en">Letting it flow</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Das Blatt lehnt schräg an der Wand oder auf einem Buch. Oben gießt du verdünnte Tusche oder Farbe auf und lässt sie herunterlaufen. Farbe, Dicke und Startpunkt wählst du. Den Weg nach unten nimmt die Schwerkraft.</span><span class="en">The sheet leans at an angle against a wall or a book. You pour thinned ink or paint at the top and let it run down. Colour, thickness and starting point are your choice. The way down belongs to gravity.</span></p>
@@ -664,10 +737,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="malerisch" data-need="beruhigung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Tropfen aus der Höhe</span><span class="en">Drops from a height</span></div>
         <div class="tags"><span class="de">Sammlung, Staunen</span><span class="en">Gathering, wonder</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Ein Tropfen Tusche fällt aus zehn Zentimetern, dann aus einem halben Meter, dann vom Stuhl aus. Je höher, desto größer der Kranz aus Spritzern. Eine ruhige, fast meditative Übung.</span><span class="en">A drop of ink falls from ten centimetres, then from half a metre, then from standing on a chair. The higher it falls, the wider the crown of splashes. A calm, almost meditative exercise.</span></p>
@@ -677,10 +750,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="malerisch" data-need="beruhigung verbindung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Nass in nass</span><span class="en">Wet in wet</span></div>
         <div class="tags"><span class="de">Ausbreiten lassen</span><span class="en">Letting it spread</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Das Papier wird erst mit Wasser bestrichen. Dann setzt du einen Tropfen Farbe hinein und schaust zu, wie er wandert, ausfranst und sich mit der Nachbarfarbe mischt.</span><span class="en">First you brush the paper with water. Then you set a drop of colour into it and watch it travel, fray and mingle with the colour next to it.</span></p>
@@ -690,10 +763,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="malerisch" data-need="weite">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
         <div class="title"><span class="de">Das Los entscheidet</span><span class="en">Drawing lots</span></div>
         <div class="tags"><span class="de">Spiel, Mut</span><span class="en">Play, courage</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Farben, Formen oder Bewegungen auf Zettel schreiben, falten, ziehen. Was gezogen wird, kommt aufs Blatt. Der Komponist John Cage, ein enger Freund von Pat Steir, hat so ganze Werke entstehen lassen.</span><span class="en">Write colours, shapes or movements on slips of paper, fold them, draw one. Whatever comes up goes onto the sheet. The composer John Cage, a close friend of Pat Steir, made whole works this way.</span></p>
@@ -703,10 +776,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="zeichnerisch" data-need="ordnung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Gabel im Sand</span><span class="en">Fork in sand</span></div>
         <div class="tags"><span class="de">Spuren ziehen</span><span class="en">Drawing traces</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Eine flache Kiste oder ein Tablett mit feuchtem Sand. Mit einer Gabel ziehst du Linien, Wellen, Kreuzungen. Ein Wisch mit der Hand, und alles ist wieder offen.</span><span class="en">A flat box or tray of damp sand. With a fork you draw lines, waves, crossings. One sweep of the hand and everything is open again.</span></p>
@@ -716,10 +789,10 @@
     </article>
     <article class="item" data-ext="zufall" data-medium="zeichnerisch" data-need="erdung">
       <button class="head" type="button" aria-expanded="false">
-        <div class="medium"><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
         <div class="title"><span class="de">Gartengeräte im Sand</span><span class="en">Garden tools in sand</span></div>
         <div class="tags"><span class="de">Spuren im Großen</span><span class="en">Traces on a large scale</span></div>
-        <span class="more"><span class="de">Details anzeigen</span><span class="en">Show details</span></span>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span></div><span class="plus" aria-hidden="true"></span>
       </button>
       <div class="body" hidden>
         <p><span class="de">Rechen, Harke, kleine Schaufel, ein Besen. Draußen im Sandkasten oder am Strand entstehen Spuren in Körpergröße. Der ganze Körper zeichnet mit.</span><span class="en">A rake, a hoe, a small spade, a broom. Outside in a sandpit or on the beach, traces appear at body size. The whole body draws along.</span></p>
@@ -730,12 +803,173 @@
 
   </div>
 
-  <div class="note-box">
+  <div class="note-box caution"><svg class="ic warn-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#warn"/></svg>
     <p><strong><span class="de">Vor jeder Übung mit Zufall</span><span class="en">Before every exercise with chance</span></strong></p>
     <p><span class="de">Zufall braucht einen sicheren Rahmen. Je mehr Halt jemand hat, desto mehr Zufall verträgt er. Wer gerade viel Unsicherheit erlebt, beginnt mit kleiner Fallhöhe, festem Brett und einem klaren Ende. Wer akut bedroht wird, braucht zuerst Schutz und Fachberatung. Die Arbeit mit Material begleitet das.</span><span class="en">Chance needs a safe frame. The more someone feels held, the more chance they can take. Anyone living with a lot of uncertainty right now starts with a small drop, a firm board and a clear ending. Anyone under acute threat needs safety and specialist support first. Working with material can go alongside that.</span></p>
   </div>
   </section>
 
+
+  <section id="umhuellen-section" class="ext-sec" data-sec="umhuellen">
+  <header class="band band-umhuellen" id="umhuellen">
+    <div class="band-in"><svg class="ic band-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-umhuellen"/></svg>
+      <div><p class="band-num"><span class="de">Erweiterung 4</span><span class="en">Extension 4</span></p>
+      <h2 class="band-title"><span class="de">Umhüllen</span><span class="en">Enfolding</span></h2>
+      <p class="band-sub"><span class="de">Von außen nach innen bergen</span><span class="en">Sheltering from the outside in</span></p></div>
+    </div></header>
+  <p class="lead"><span class="de">Umhüllen heißt, etwas von außen nach innen zu bergen. Du ziehst eine Grenze, polsterst einen Innenraum, baust Wände um eine Mitte. Mit Farbe, Linie, Ton und dem ganzen Körper entsteht so nach und nach ein Schutzraum. Du stattest ihn aus, bis alles da ist, was du zum Erholen brauchst.</span><span class="en">Enfolding means sheltering something from the outside in. You draw a boundary, pad an inner space, build walls around a centre. With colour, line, clay and the whole body, a shelter gradually takes shape. You furnish it until everything you need to recover is there.</span></p>
+  <p class="hand hand-s"><span class="de">Was brauchst du, damit du dich hier ausruhen kannst?</span><span class="en">What do you need to be able to rest here?</span></p>
+  <div class="grid" id="grid-umhuellen">
+    <article class="item" data-ext="umhuellen" data-medium="malerisch" data-need="ordnung schutz">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Meine Burg mit Schutzwall</span><span class="en">My castle with a protective wall</span></div>
+        <div class="tags"><span class="de">Grenze, Standhaftigkeit</span><span class="en">Boundary, standing your ground</span></div>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Du malst deine Burg, so wie sie heute sein soll. Erst den Ort in der Mitte, dann den Wall rundherum, Stein für Stein, so hoch und so dick, wie es sich richtig anfühlt. Wassergraben, Zugbrücke und Türme sind erlaubt. Die Zugbrücke bedienst du von innen.</span><span class="en">You paint your castle the way it should be today. First the place in the middle, then the wall around it, stone by stone, as high and as thick as feels right. A moat, a drawbridge and towers are all allowed. You work the drawbridge from the inside.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Wenn sich jemand ausgeliefert fühlt oder die eigenen Grenzen erst finden muss</span><span class="en">When someone feels at the mercy of others, or still has to find their boundaries</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Ein sehr hoher Wall darf stehen bleiben. Wer hineindarf, fragst du erst später im Gespräch.</span><span class="en">A very high wall may stay. Who may come in is a question for later, in conversation.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="malerisch" data-need="schutz beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Sicheren Ort malen</span><span class="en">Painting a safe place</span></div>
+        <div class="tags"><span class="de">Innere Zuflucht</span><span class="en">An inner refuge</span></div>
+        <div class="needs"><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein Ort, wirklich oder erfunden, an dem du dich ganz sicher fühlst. Du malst ihn mit allem, was dazugehört, mit Licht, Temperatur, Geräuschen und Gerüchen. Je genauer er wird, desto leichter findest du ihn später wieder, auch mit geschlossenen Augen.</span><span class="en">A place, real or invented, where you feel completely safe. You paint it with everything that belongs to it, with light, temperature, sounds and smells. The more precise it gets, the easier you'll find your way back later, even with your eyes closed.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Zur Stabilisierung, vor belastenden Themen, als Anker zwischen zwei Sitzungen</span><span class="en">For stabilising, before difficult topics, as an anchor between two sessions</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Manche finden anfangs keinen sicheren Ort. Dann genügt ein kleiner, ein Sessel, eine Decke, ein Lichtfleck. Menschen bleiben besser draußen, Beziehungen können sich ändern. Tiere und Pflanzen sind willkommen.</span><span class="en">Some people find no safe place at first. A small one is enough then, an armchair, a blanket, a patch of light. People are best left outside, since relationships can change. Animals and plants are welcome.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="zeichnerisch" data-need="ordnung schutz">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Punkt und Umkreis</span><span class="en">Point and circle</span></div>
+        <div class="tags"><span class="de">Mitte und Abstand</span><span class="en">Centre and distance</span></div>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein Punkt in der Mitte des Blatts. Um ihn ziehst du langsam einen Kreis, dann einen zweiten und einen dritten, jeweils mit etwas Abstand. Du spürst, wie viel Raum der Punkt braucht, damit er atmen kann. Zum Schluss verstärkst du den Kreis, der sich am meisten nach Schutz anfühlt.</span><span class="en">A point in the middle of the sheet. Slowly you draw a circle around it, then a second and a third, each with a little space between. You feel how much room the point needs to breathe. Finally you strengthen the circle that feels most like protection.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Zerstreuung, wenn die eigene Mitte verloren gegangen ist</span><span class="en">When scattered, when your own centre has gone missing</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Eine sehr enge Linie kann einschnüren. Frag nach, ob innen noch Platz zum Atmen ist.</span><span class="en">A very tight line can feel constricting. Ask whether there's still room to breathe inside.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="plastisch" data-need="erdung schutz">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="title"><span class="de">Nest bauen</span><span class="en">Building a nest</span></div>
+        <div class="tags"><span class="de">Halt, Geborgenheit</span><span class="en">Holding, feeling sheltered</span></div>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Zweige, Moos, Heu, Wollreste, Federn. Du formst eine Mulde, gerade so groß wie deine beiden Hände zusammen. Rund wird ein Nest durch Drehen und Drücken von innen, so wie ein Vogel es mit der Brust macht. Zum Schluss legst du hinein, was ausruhen soll.</span><span class="en">Twigs, moss, hay, scraps of wool, feathers. You shape a hollow just big enough for both your hands together. A nest gets its roundness from turning and pressing from the inside, the way a bird uses its breast. Finally you lay inside whatever needs to rest.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Nach Erschöpfung, wenn sich jemand klein und ungeschützt fühlt</span><span class="en">After exhaustion, or when someone feels small and exposed</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Naturmaterial vorher ausschütteln. Bei Allergien auf Stoff und Wolle ausweichen.</span><span class="en">Shake natural material out first. With allergies, switch to fabric and wool.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="plastisch" data-need="ordnung schutz">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="title"><span class="de">Karton auskleiden</span><span class="en">Lining a box</span></div>
+        <div class="tags"><span class="de">Grenze, Innenraum</span><span class="en">Boundary, an inside</span></div>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein Schuhkarton oder eine kleine Schachtel wird von innen ausgekleidet, mit Stoff, Watte, Seidenpapier oder einem Stück alter Decke. Außen darf er bleiben, wie er ist. Die ganze Sorgfalt gehört dem Inneren. Ein Deckel ist erlaubt, ein Spalt auch.</span><span class="en">A shoebox or small box gets lined from the inside, with fabric, cotton wool, tissue paper or a piece of an old blanket. The outside can stay as it is. All the care goes to the inside. A lid is allowed, and so is a gap.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Wenn die eigene Grenze gerade dünn ist, nach zu viel Kontakt</span><span class="en">When your own boundary feels thin, after too much contact</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Wer Enge schwer erträgt, lässt den Deckel weg.</span><span class="en">Anyone who finds closed spaces hard leaves the lid off.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="malerisch" data-need="beruhigung schutz">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-malerisch"/></svg><span class="de">Malerisch</span><span class="en">Painting</span></div>
+        <div class="title"><span class="de">Höhle malen</span><span class="en">Painting a cave</span></div>
+        <div class="tags"><span class="de">Rückzug, Dämmerlicht</span><span class="en">Retreat, dim light</span></div>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein großes Blatt, satte Farbe. Du malst eine Höhle von außen nach innen, die Ränder dunkel und dicht, zur Mitte hin heller und wärmer. In der Mitte bleibt ein Platz frei, gerade groß genug für dich. Ob du dich hineinmalst, entscheidest du ganz am Ende.</span><span class="en">A large sheet, rich colour. You paint a cave from the outside in, with dark, dense edges growing lighter and warmer towards the middle. In the centre you leave a space free, just big enough for you. Whether you paint yourself in is something you decide at the very end.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Reizüberflutung, wenn alles zu hell und zu laut ist</span><span class="en">With overstimulation, when everything is too bright and too loud</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Dunkle Farbe kann schwer werden. Ein warmer Lichtpunkt in der Mitte hilft.</span><span class="en">Dark colour can turn heavy. A warm point of light in the centre helps.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="plastisch" data-need="erdung schutz">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></div>
+        <div class="title"><span class="de">Höhle aus Ton</span><span class="en">A cave of clay</span></div>
+        <div class="tags"><span class="de">Hülle, Wärme in der Hand</span><span class="en">A shell, warmth in the hand</span></div>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein Klumpen Ton, mit dem Daumen ausgehöhlt, bis eine kleine Höhle entsteht. Die Wand wird gleichmäßig dick und innen glatt gestrichen. Daneben formst du eine kleine Figur oder Kugel, die darin wohnen darf. Wie weit sie hineinkommt, bestimmst du.</span><span class="en">A lump of clay hollowed out with your thumb until a small cave appears. The wall gets an even thickness and is smoothed on the inside. Next to it you shape a small figure or ball that's allowed to live there. You decide how far in it goes.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Wenn dem Körper Halt fehlt, als Abschluss nach dem Tonwerfen</span><span class="en">When the body lacks holding, as a close after throwing clay</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Ton kühlt die Hände. Wer friert, bekommt ein warmes Tuch oder eine Schüssel mit warmem Wasser.</span><span class="en">Clay cools the hands. Anyone who feels cold gets a warm cloth or a bowl of warm water.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="koerper" data-need="schutz beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="title"><span class="de">Tuch über dem Tisch</span><span class="en">A cloth over the table</span></div>
+        <div class="tags"><span class="de">Rückzug mit dem ganzen Körper</span><span class="en">Retreat with the whole body</span></div>
+        <div class="needs"><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Eine Decke oder ein großes Tuch über Tisch oder Stühle gehängt, wie früher als Kind. Du kriechst darunter, mit Papier, Stift und einer kleinen Lampe, und zeichnest von drinnen. Oft verändert sich der Strich, sobald der Raum enger und dunkler wird.</span><span class="en">A blanket or a large cloth draped over a table or chairs, the way you did as a child. You crawl underneath with paper, a pencil and a small lamp, and draw from inside. The line often changes as soon as the space grows smaller and darker.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Erschöpfung, für Kinder und für Erwachsene, die eine Weile Kind sein dürfen</span><span class="en">With exhaustion, for children and for adults who may be a child for a while</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Der Ausgang bleibt immer sichtbar und offen.</span><span class="en">The way out always stays visible and open.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="zeichnerisch" data-need="schutz verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Vorrat einräumen</span><span class="en">Stocking up</span></div>
+        <div class="tags"><span class="de">Was ich zum Erholen brauche</span><span class="en">What I need to recover</span></div>
+        <div class="needs"><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Jetzt wird der Schutzraum ausgestattet. Du zeichnest, malst oder schneidest aus, was hineingehört, eine Tasse Tee, eine Lampe, ein Buch, eine Decke, ein Tier, ein Mensch, ein Geräusch. Jedes Ding bekommt seinen Platz. Am Ende fragst du dich, ob jetzt alles da ist.</span><span class="en">Now the shelter gets furnished. You draw, paint or cut out what belongs inside, a cup of tea, a lamp, a book, a blanket, an animal, a person, a sound. Each thing gets its own place. At the end you ask yourself whether everything is there now.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Nach dem Bauen, zusammen mit jeder anderen Karte dieser Erweiterung</span><span class="en">After building, together with any other card in this extension</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Manchmal fehlt etwas, das gerade unerreichbar ist. Es darf als Leerstelle im Raum bleiben.</span><span class="en">Sometimes something is missing that's out of reach right now. It can stay in the room as an empty place.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="zeichnerisch" data-need="weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Tür und Fenster</span><span class="en">Door and window</span></div>
+        <div class="tags"><span class="de">Eine Öffnung, die du bestimmst</span><span class="en">An opening you decide on</span></div>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Der fertige Schutzraum bekommt eine Öffnung. Eine Tür, die nur von innen aufgeht, ein Fenster mit Ausblick, ein Spalt für Licht. Du entscheidest, wie groß sie wird und wohin sie zeigt. Erholung braucht Rückzug und irgendwann auch den Blick nach draußen.</span><span class="en">The finished shelter gets an opening. A door that only opens from the inside, a window with a view, a gap for light. You decide how big it is and where it faces. Recovery needs retreat, and at some point a look outside too.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Zum Abschluss, wenn die Kraft langsam zurückkommt</span><span class="en">As a close, when strength slowly returns</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Erst wenn der Raum sich sicher anfühlt. Die Öffnung bleibt eine Einladung.</span><span class="en">Only once the space feels safe. The opening stays an invitation.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="umhuellen" data-medium="koerper" data-need="schutz beruhigung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></div>
+        <div class="title"><span class="de">Hände als Höhle</span><span class="en">Hands as a cave</span></div>
+        <div class="tags"><span class="de">Ein Schutzraum, den du immer dabeihast</span><span class="en">A shelter you always carry</span></div>
+        <div class="needs"><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Beide Hände wölben sich zu einer Höhle. Darin liegt etwas Kleines, ein Stein, eine Tonkugel, ein Kirschkern. Du spürst die Wärme, die sich darin sammelt, und atmest ein paar Mal langsam hinein. Diesen Raum kannst du überall bauen, im Zug, im Wartezimmer, im Teammeeting.</span><span class="en">Both hands curve into a cave. Inside lies something small, a stone, a ball of clay, a cherry stone. You feel the warmth gathering there and breathe slowly into it a few times. You can build this space anywhere, on the train, in a waiting room, in a team meeting.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Für unterwegs, als Brücke zwischen Atelier und Alltag</span><span class="en">On the go, as a bridge between studio and everyday life</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Zu zweit nur mit ausdrücklicher Zustimmung, wenn eine zweite Person ihre Hände als Dach darüberlegt.</span><span class="en">In pairs, only with explicit consent, when a second person lays their hands over yours as a roof.</span></p>
+      </div>
+    </article>
+  </div>
+
+  <div class="note-box caution"><svg class="ic warn-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#warn"/></svg>
+    <p><strong><span class="de">Vor jeder Übung zum Umhüllen</span><span class="en">Before every enfolding exercise</span></strong></p>
+    <p><span class="de">Umhüllen braucht das eigene Tempo. Wer gerade erschöpft ist, braucht oft zuerst Wärme und Halt, das Gestalten kommt danach. Lass jede Person selbst bestimmen, wie geschlossen oder offen ihr Raum wird und wer hineindarf. Wer akut bedroht wird, braucht zuerst echten Schutz und Fachberatung. Die gebaute Höhle begleitet das.</span><span class="en">Enfolding needs its own pace. Someone exhausted often needs warmth and holding first, and the making comes after. Let each person decide how closed or open their space becomes and who may come in. Anyone under acute threat needs real safety and specialist support first. The cave you build goes alongside that.</span></p>
+  </div>
+  </section>
 
   <div class="teaser">
     <strong><span class="de">Die Sammlung wächst weiter</span><span class="en">The collection keeps growing</span></strong><br>
@@ -743,7 +977,7 @@
     <span class="de">Wer keine Erweiterung verpassen will, abonniert den Newsletter über den Link oben.</span><span class="en">To catch every extension, subscribe to the newsletter using the link above.</span>
   </div>
 
-  <p class="count"><span class="de">Zuletzt erweitert: November 2026 (Erweiterung 3, ZuFall)</span><span class="en">Last extended: November 2026 (extension 3, Chance)</span></p>
+  <p class="count"><span class="de">Zuletzt erweitert: November 2026 (Erweiterung 4, Umhüllen)</span><span class="en">Last extended: November 2026 (extension 4, Enfolding)</span></p>
 
   <footer>
     <p>earth-s Institut · Prof. Hildrun Rolff · <span class="de">Stand: November 2026</span><span class="en">Status: November 2026</span></p>
@@ -759,7 +993,7 @@
   var mediumButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-medium button'));
   var needButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-need button'));
   var extButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-ext button'));
-  var extHeads = { rhythmus: document.getElementById('rhythmus'), extended: document.getElementById('ext-section'), zufall: document.getElementById('zufall-section') };
+  var extHeads = { rhythmus: document.getElementById('rhythmus-section'), extended: document.getElementById('ext-section'), zufall: document.getElementById('zufall-section'), umhuellen: document.getElementById('umhuellen-section') };
   var ext = 'alle';
   var count = document.getElementById('count');
   var medium = 'alle';
@@ -828,6 +1062,7 @@
     b.addEventListener('click', function () {
       ext = b.getAttribute('data-ext');
       setPressed(extButtons, ext, 'data-ext');
+      document.getElementById('filter-ext').classList.toggle('picked', ext !== 'alle');
       apply();
     });
   });
