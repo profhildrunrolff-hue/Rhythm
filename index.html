@@ -15,7 +15,8 @@
   --extended:#3c7a34; --extended-t:#e3f0dc;
   --zufall:#2565a3; --zufall-t:#dde9f6;
   --umhuellen:#a86a0c; --umhuellen-t:#f8ead0;
-  --n-beruhigung:#5b5fc0; --n-kraft:#d9680f; --n-erdung:#8a5a2b; --n-ordnung:#16807a; --n-weite:#2f95cf; --n-verbindung:#c2457d; --n-schutz:#7b3d86;
+  --fotos:#1d6f78; --fotos-t:#dcefef;
+  --n-beruhigung:#5b5fc0; --n-kraft:#d9680f; --n-erdung:#8a5a2b; --n-ordnung:#16807a; --n-weite:#2f95cf; --n-verbindung:#c2457d; --n-schutz:#7b3d86; --n-aufbruch:#1d6f78;
   --on-color:#ffffff; --shadow:0 1px 2px rgba(40,30,20,.06),0 6px 18px rgba(40,30,20,.07);
   --f-display:"Young Serif",Georgia,"Times New Roman",serif;
   --f-body:"Figtree","Segoe UI",Helvetica,Arial,sans-serif;
@@ -23,13 +24,13 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#17161a; --sheet:#222126; --ink:#f1eee9; --soft:#c4bdb5; --rule:#36343a;
-  --rhythmus:#ec6f55; --rhythmus-t:#3a2420; --extended:#7cbf6e; --extended-t:#203320; --zufall:#6aa6e6; --zufall-t:#1c2a3b; --umhuellen:#e3a548; --umhuellen-t:#352914;
-  --n-beruhigung:#9497ee; --n-kraft:#f2994a; --n-erdung:#d0a072; --n-ordnung:#4fc4bb; --n-weite:#6cc0ee; --n-verbindung:#ea7fb0; --n-schutz:#c58bd0;
+  --rhythmus:#ec6f55; --rhythmus-t:#3a2420; --extended:#7cbf6e; --extended-t:#203320; --zufall:#6aa6e6; --zufall-t:#1c2a3b; --umhuellen:#e3a548; --umhuellen-t:#352914; --fotos:#5cbcc6; --fotos-t:#16302f;
+  --n-beruhigung:#9497ee; --n-kraft:#f2994a; --n-erdung:#d0a072; --n-ordnung:#4fc4bb; --n-weite:#6cc0ee; --n-verbindung:#ea7fb0; --n-schutz:#c58bd0; --n-aufbruch:#5cbcc6;
   --on-color:#141316; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark;}}
 :root[data-theme="dark"]{
   --paper:#17161a; --sheet:#222126; --ink:#f1eee9; --soft:#c4bdb5; --rule:#36343a;
-  --rhythmus:#ec6f55; --rhythmus-t:#3a2420; --extended:#7cbf6e; --extended-t:#203320; --zufall:#6aa6e6; --zufall-t:#1c2a3b; --umhuellen:#e3a548; --umhuellen-t:#352914;
-  --n-beruhigung:#9497ee; --n-kraft:#f2994a; --n-erdung:#d0a072; --n-ordnung:#4fc4bb; --n-weite:#6cc0ee; --n-verbindung:#ea7fb0; --n-schutz:#c58bd0;
+  --rhythmus:#ec6f55; --rhythmus-t:#3a2420; --extended:#7cbf6e; --extended-t:#203320; --zufall:#6aa6e6; --zufall-t:#1c2a3b; --umhuellen:#e3a548; --umhuellen-t:#352914; --fotos:#5cbcc6; --fotos-t:#16302f;
+  --n-beruhigung:#9497ee; --n-kraft:#f2994a; --n-erdung:#d0a072; --n-ordnung:#4fc4bb; --n-weite:#6cc0ee; --n-verbindung:#ea7fb0; --n-schutz:#c58bd0; --n-aufbruch:#5cbcc6;
   --on-color:#141316; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark;}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -52,20 +53,21 @@ h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5.4vw,56px)
 .lead{font-size:18px;color:var(--soft);margin:0 0 24px;max-width:62ch}
 
 /* extension tiles */
-.tiles{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:12px;margin:8px 0 22px}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr) auto;gap:12px;margin:8px 0 22px}
 .tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:0;border-radius:18px;padding:18px 18px 16px;cursor:pointer;color:var(--on-color);min-height:132px;overflow:hidden;transition:transform .15s ease, box-shadow .15s ease;box-shadow:var(--shadow)}
 .tile:hover{transform:translateY(-2px) rotate(-.4deg)}
-.tile-rhythmus{background:var(--rhythmus)} .tile-extended{background:var(--extended)} .tile-zufall{background:var(--zufall)} .tile-umhuellen{background:var(--umhuellen)}
+.tile-rhythmus{background:var(--rhythmus)} .tile-extended{background:var(--extended)} .tile-zufall{background:var(--zufall)} .tile-umhuellen{background:var(--umhuellen)} .tile-fotos{background:var(--fotos)}
 .tile .t-ic{position:absolute;right:-10px;bottom:-14px;width:96px;height:96px;opacity:.28;stroke-width:1.3}
 .t-num{font-family:var(--f-hand);font-size:30px;line-height:1;font-weight:700}
 .t-name{font-family:var(--f-display);font-size:24px;line-height:1.15}
 .t-n{font-size:13px;font-weight:600;opacity:.92;margin-top:auto;display:flex;gap:6px;align-items:center}
-.t-new{background:var(--on-color);color:var(--umhuellen);border-radius:999px;padding:1px 9px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.t-new{background:var(--on-color);color:var(--fotos);border-radius:999px;padding:1px 9px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .tile-alle{background:var(--sheet);color:var(--ink);border:1.5px dashed var(--soft);box-shadow:none;justify-content:center;min-width:120px}
 .tile-alle .t-name{font-size:19px}
 .tile[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:3px}
 .tile[aria-pressed="false"]:not(.tile-alle){filter:saturate(.9)}
 .tiles.picked .tile[aria-pressed="false"]:not(.tile-alle){opacity:.45}
+@media (max-width:1100px){.tiles{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}.tile-alle{min-height:0;grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;padding:12px 18px}.tile-alle .t-n{margin:0}}
 
 .note-box{background:var(--sheet);border-radius:16px;padding:18px 22px;margin:0 0 26px;box-shadow:var(--shadow)}
@@ -83,7 +85,7 @@ h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5.4vw,56px)
 .chip:hover{transform:translateY(-1px)}
 .chip .ic{width:18px;height:18px}
 .chip.c-alle{color:var(--soft)}
-.c-beruhigung{color:var(--n-beruhigung)} .c-kraft{color:var(--n-kraft)} .c-erdung{color:var(--n-erdung)} .c-ordnung{color:var(--n-ordnung)} .c-weite{color:var(--n-weite)} .c-verbindung{color:var(--n-verbindung)} .c-schutz{color:var(--n-schutz)}
+.c-beruhigung{color:var(--n-beruhigung)} .c-kraft{color:var(--n-kraft)} .c-erdung{color:var(--n-erdung)} .c-ordnung{color:var(--n-ordnung)} .c-weite{color:var(--n-weite)} .c-verbindung{color:var(--n-verbindung)} .c-schutz{color:var(--n-schutz)} .c-aufbruch{color:var(--n-aufbruch)}
 .chip-m{color:var(--ink)}
 .chip[aria-pressed="true"]{background:currentColor}
 .chip[aria-pressed="true"] > *{color:var(--sheet)}
@@ -92,7 +94,7 @@ h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5.4vw,56px)
 /* bands */
 .ext-sec{margin-top:34px}
 .band{border-radius:22px;color:var(--on-color);position:relative;overflow:hidden;margin:0 0 4px}
-.band-rhythmus{background:var(--rhythmus)} .band-extended{background:var(--extended)} .band-zufall{background:var(--zufall)} .band-umhuellen{background:var(--umhuellen)}
+.band-rhythmus{background:var(--rhythmus)} .band-extended{background:var(--extended)} .band-zufall{background:var(--zufall)} .band-umhuellen{background:var(--umhuellen)} .band-fotos{background:var(--fotos)}
 .band-in{display:flex;gap:18px;align-items:center;padding:22px 24px}
 .band-ic{width:64px;height:64px;stroke-width:1.4;flex:none}
 .band-num{font-family:var(--f-hand);font-size:24px;font-weight:700;margin:0;line-height:1}
@@ -115,6 +117,7 @@ h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5.4vw,56px)
 .item[data-ext="extended"]{--c:var(--extended);--t:var(--extended-t)}
 .item[data-ext="zufall"]{--c:var(--zufall);--t:var(--zufall-t)}
 .item[data-ext="umhuellen"]{--c:var(--umhuellen);--t:var(--umhuellen-t)}
+.item[data-ext="fotos"]{--c:var(--fotos);--t:var(--fotos-t)}
 .item[hidden]{display:none}
 .item button.head{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;column-gap:10px;width:100%;padding:14px 16px 14px}
 .item button.head:focus-visible{outline:3px solid var(--c);outline-offset:-3px;border-radius:12px}
@@ -126,7 +129,7 @@ h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5.4vw,56px)
 .needs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .nd{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;border-radius:999px;padding:2px 9px 2px 5px;background:color-mix(in srgb,currentColor 12%,transparent)}
 .nd .ic{width:16px;height:16px}
-.nd-beruhigung{color:var(--n-beruhigung)} .nd-kraft{color:var(--n-kraft)} .nd-erdung{color:var(--n-erdung)} .nd-ordnung{color:var(--n-ordnung)} .nd-weite{color:var(--n-weite)} .nd-verbindung{color:var(--n-verbindung)} .nd-schutz{color:var(--n-schutz)}
+.nd-beruhigung{color:var(--n-beruhigung)} .nd-kraft{color:var(--n-kraft)} .nd-erdung{color:var(--n-erdung)} .nd-ordnung{color:var(--n-ordnung)} .nd-weite{color:var(--n-weite)} .nd-verbindung{color:var(--n-verbindung)} .nd-schutz{color:var(--n-schutz)} .nd-aufbruch{color:var(--n-aufbruch)}
 .plus{grid-column:2!important;grid-row:1/span 5;align-self:start;width:38px;height:38px;border-radius:50%;background:var(--c);position:relative;transition:transform .2s ease}
 .plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:2.5px;border-radius:2px;background:var(--on-color);transform:translate(-50%,-50%)}
 .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
@@ -144,6 +147,14 @@ h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5.4vw,56px)
 .ext-sec[data-sec="extended"] .caution{background:var(--extended-t)}
 .ext-sec[data-sec="zufall"] .caution{background:var(--zufall-t)}
 .ext-sec[data-sec="umhuellen"] .caution{background:var(--umhuellen-t)}
+.ext-sec[data-sec="fotos"] .caution{background:var(--fotos-t)}
+.hand-f{color:var(--fotos);font-size:26px;margin:4px 0 0}
+.klinik-box{background:var(--sheet);border:2px solid var(--fotos);border-radius:18px;padding:16px 20px;margin:14px 0 4px}
+.klinik-box h3{font-family:var(--f-display);font-weight:400;font-size:22px;margin:0 0 6px;color:var(--fotos)}
+.klinik-box p{margin:6px 0;font-size:16px}
+.body .label.k{background:var(--fotos);color:var(--on-color)}
+.pk{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;border-radius:999px;padding:2px 9px;color:var(--fotos);border:1.5px solid var(--fotos)}
+.c-klinik{color:var(--fotos)}
 .hand-s{color:var(--umhuellen);font-size:26px;margin:4px 0 0}
 .warn-ic{position:absolute;left:20px;top:20px;width:28px;height:28px;color:var(--ink)}
 
@@ -154,7 +165,7 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
 </style>
 </head>
 <body class="lang-de">
-<div class="wrap"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="x-rhythmus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="13" r="2.2"/><circle cx="12" cy="11" r="3"/><circle cx="19.5" cy="13" r="2.2"/><path d="M3 19c3-1.5 5 1.5 9 0s6 1.5 9 0"/></symbol><symbol id="x-extended" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22C7 15 10 9 17 3"/><path d="M13.5 7.5l-3-1.5M15.5 5l1-3.2M15 6l3.5.5M12 10l-3-.5"/></symbol><symbol id="x-zufall" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2.5 4 4.5 6.5 4.5 9a4.5 4.5 0 0 1-9 0C7.5 8.5 9.5 6 12 2z"/><path d="M5 20.5h14"/><circle cx="7" cy="17.5" r=".8"/><circle cx="17.5" cy="17" r=".8"/><circle cx="12" cy="18.2" r=".6"/></symbol><symbol id="x-umhuellen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.8"/><path d="M12 6.2a5.8 5.8 0 1 1-5.4 3.7"/><path d="M12 2.5a9.5 9.5 0 1 1-8.6 5.5"/></symbol><symbol id="m-malerisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5l6 6-7.5 7.5-6-6z"/><path d="M7 11l-2.5 2.5c-1.6 1.6-.6 3.6-2 6 2.4-1.4 4.4-.4 6-2L11 15"/></symbol><symbol id="m-zeichnerisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.2-4.5L16 4.7a2.3 2.3 0 0 1 3.3 3.3L8.5 18.8z"/><path d="M14 7l3 3"/></symbol><symbol id="m-plastisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17c-2-3 0-7 3-8 1-3 6-4 8-1 3 0 5 3 3.5 6 1 3-2 5-5 4.5-2 1.5-6 1.5-9.5-1.5z"/><path d="M10 13c1 .8 2.5.8 3.5 0"/></symbol><symbol id="m-koerper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7.5v7M6 10.5l6-1.5 6 1.5M12 14.5l-3.5 7M12 14.5l3.5 7"/></symbol><symbol id="m-paar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="12" r="5.5"/><circle cx="15.5" cy="12" r="5.5"/></symbol><symbol id="n-beruhigung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c3-2.5 6 2.5 9 0s6 2.5 9 0M3 15c3-2.5 6 2.5 9 0s6 2.5 9 0"/></symbol><symbol id="n-kraft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.3 5.3l2.8 2.8M15.9 15.9l2.8 2.8M18.7 5.3l-2.8 2.8M8.1 15.9l-2.8 2.8"/><circle cx="12" cy="12" r="2.2"/></symbol><symbol id="n-erdung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 10h19"/><path d="M12 10v5c0 2-2 2.5-3 4M12 13c1.5 1 3 1.5 3.5 4M12 15c-2 0-4-1-5-2.5"/><path d="M12 10V4.5M12 6.5c1.5-1.8 3-2 4.5-1.5M12 7.5C10.5 6 9 5.8 7.5 6.5"/></symbol><symbol id="n-ordnung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M3.5 9.2h17M3.5 14.8h17M9.2 3.5v17M14.8 3.5v17"/></symbol><symbol id="n-weite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17c4-8 15-8 19 0"/><path d="M8 9.5c1.2-1.2 2.8-1.2 4 0 1.2-1.2 2.8-1.2 4 0"/></symbol><symbol id="n-verbindung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 14.5l5-5"/><path d="M11 6.5l1.5-1.5a4.2 4.2 0 0 1 6 6L17 12.5M13 17.5L11.5 19a4.2 4.2 0 0 1-6-6L7 11.5"/></symbol><symbol id="n-schutz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M12 17.5c-2-1.3-3-2.4-3-3.6a1.6 1.6 0 0 1 3-.8 1.6 1.6 0 0 1 3 .8c0 1.2-1 2.3-3 3.6z"/></symbol><symbol id="warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></symbol><symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol></svg>
+<div class="wrap"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="x-fotos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5"/><circle cx="12" cy="12" r="2.4"/></symbol><symbol id="m-fotografisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7l1.5-3h4l1.5 3"/><circle cx="12" cy="13.5" r="3.5"/></symbol><symbol id="n-aufbruch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4v-4h4v-4h4V8h4"/><path d="M17 4l3 4-4 1"/></symbol><symbol id="p-klinik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></symbol><symbol id="x-rhythmus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="13" r="2.2"/><circle cx="12" cy="11" r="3"/><circle cx="19.5" cy="13" r="2.2"/><path d="M3 19c3-1.5 5 1.5 9 0s6 1.5 9 0"/></symbol><symbol id="x-extended" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22C7 15 10 9 17 3"/><path d="M13.5 7.5l-3-1.5M15.5 5l1-3.2M15 6l3.5.5M12 10l-3-.5"/></symbol><symbol id="x-zufall" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2.5 4 4.5 6.5 4.5 9a4.5 4.5 0 0 1-9 0C7.5 8.5 9.5 6 12 2z"/><path d="M5 20.5h14"/><circle cx="7" cy="17.5" r=".8"/><circle cx="17.5" cy="17" r=".8"/><circle cx="12" cy="18.2" r=".6"/></symbol><symbol id="x-umhuellen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.8"/><path d="M12 6.2a5.8 5.8 0 1 1-5.4 3.7"/><path d="M12 2.5a9.5 9.5 0 1 1-8.6 5.5"/></symbol><symbol id="m-malerisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5l6 6-7.5 7.5-6-6z"/><path d="M7 11l-2.5 2.5c-1.6 1.6-.6 3.6-2 6 2.4-1.4 4.4-.4 6-2L11 15"/></symbol><symbol id="m-zeichnerisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.2-4.5L16 4.7a2.3 2.3 0 0 1 3.3 3.3L8.5 18.8z"/><path d="M14 7l3 3"/></symbol><symbol id="m-plastisch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17c-2-3 0-7 3-8 1-3 6-4 8-1 3 0 5 3 3.5 6 1 3-2 5-5 4.5-2 1.5-6 1.5-9.5-1.5z"/><path d="M10 13c1 .8 2.5.8 3.5 0"/></symbol><symbol id="m-koerper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7.5v7M6 10.5l6-1.5 6 1.5M12 14.5l-3.5 7M12 14.5l3.5 7"/></symbol><symbol id="m-paar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="12" r="5.5"/><circle cx="15.5" cy="12" r="5.5"/></symbol><symbol id="n-beruhigung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c3-2.5 6 2.5 9 0s6 2.5 9 0M3 15c3-2.5 6 2.5 9 0s6 2.5 9 0"/></symbol><symbol id="n-kraft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.3 5.3l2.8 2.8M15.9 15.9l2.8 2.8M18.7 5.3l-2.8 2.8M8.1 15.9l-2.8 2.8"/><circle cx="12" cy="12" r="2.2"/></symbol><symbol id="n-erdung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 10h19"/><path d="M12 10v5c0 2-2 2.5-3 4M12 13c1.5 1 3 1.5 3.5 4M12 15c-2 0-4-1-5-2.5"/><path d="M12 10V4.5M12 6.5c1.5-1.8 3-2 4.5-1.5M12 7.5C10.5 6 9 5.8 7.5 6.5"/></symbol><symbol id="n-ordnung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M3.5 9.2h17M3.5 14.8h17M9.2 3.5v17M14.8 3.5v17"/></symbol><symbol id="n-weite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17c4-8 15-8 19 0"/><path d="M8 9.5c1.2-1.2 2.8-1.2 4 0 1.2-1.2 2.8-1.2 4 0"/></symbol><symbol id="n-verbindung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 14.5l5-5"/><path d="M11 6.5l1.5-1.5a4.2 4.2 0 0 1 6 6L17 12.5M13 17.5L11.5 19a4.2 4.2 0 0 1-6-6L7 11.5"/></symbol><symbol id="n-schutz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M12 17.5c-2-1.3-3-2.4-3-3.6a1.6 1.6 0 0 1 3-.8 1.6 1.6 0 0 1 3 .8c0 1.2-1 2.3-3 3.6z"/></symbol><symbol id="warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></symbol><symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol></svg>
 
   <div class="topbar">
     <div class="lang-switch" role="group" aria-label="Sprache / Language">
@@ -165,19 +176,20 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
 
   <p class="eyebrow"><span class="de">earth-s Institut · Übersicht</span><span class="en">earth-s Institut · Overview</span></p>
   <h1><span class="de">Inspirationen aus der Praxis für die Praxis</span><span class="en">Inspirations from practice for practice</span></h1>
-  <p class="lead"><span class="de">Hier sammle ich Formen aus meiner Arbeit mit Material, Körper und Bild, die sich in der Praxis bewährt haben. Jede Erweiterung bringt eine neue Gruppe dazu, von Rhythmus über verlängerte Werkzeuge und Zufall bis zum Umhüllen. Klick auf eine Karte, um Details zu sehen.</span><span class="en">Here I collect forms from my work with material, body and image that have proven themselves in practice. Each extension adds a new group, from rhythm, extended tools and chance to enfolding. Click a card to see the details.</span></p>
+  <p class="lead"><span class="de">Hier sammle ich Formen aus meiner Arbeit mit Material, Körper und Bild, die sich in der Praxis bewährt haben. Jede Erweiterung bringt eine neue Gruppe dazu, vom Takt über verlängerte Werkzeuge, Zufall und Umhüllen bis zur Arbeit mit Fotos. Klick auf eine Karte, um Details zu sehen.</span><span class="en">Here I collect forms from my work with material, body and image that have proven themselves in practice. Each extension adds a new group, from rhythm, extended tools, chance and enfolding to working with photos. Click a card to see the details.</span></p>
 
   <div class="tiles" id="filter-ext" role="group" aria-label="Nach Erweiterung filtern / Filter by extension">
-    <button type="button" data-ext="alle" aria-pressed="true" class="tile tile-alle"><span class="t-name"><span class="de">Alle zeigen</span><span class="en">Show all</span></span><span class="t-n">51</span></button>
-    <button type="button" data-ext="rhythmus" aria-pressed="false" class="tile tile-rhythmus"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-rhythmus"/></svg><span class="t-num">1</span><span class="t-name"><span class="de">Rhythmus</span><span class="en">Rhythm</span></span><span class="t-n">22 <span class="de">Karten</span><span class="en">cards</span></span></button>
-    <button type="button" data-ext="extended" aria-pressed="false" class="tile tile-extended"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-extended"/></svg><span class="t-num">2</span><span class="t-name"><span class="de">Verlängern</span><span class="en">Extended</span></span><span class="t-n">9 <span class="de">Karten</span><span class="en">cards</span></span></button>
+    <button type="button" data-ext="alle" aria-pressed="true" class="tile tile-alle"><span class="t-name"><span class="de">Alle zeigen</span><span class="en">Show all</span></span><span class="t-n">74</span></button>
+    <button type="button" data-ext="rhythmus" aria-pressed="false" class="tile tile-rhythmus"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-rhythmus"/></svg><span class="t-num">1</span><span class="t-name"><span class="de">Takt finden</span><span class="en">Finding the beat</span></span><span class="t-n">22 <span class="de">Karten</span><span class="en">cards</span></span></button>
+    <button type="button" data-ext="extended" aria-pressed="false" class="tile tile-extended"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-extended"/></svg><span class="t-num">2</span><span class="t-name"><span class="de">Verlängern</span><span class="en">Extending</span></span><span class="t-n">9 <span class="de">Karten</span><span class="en">cards</span></span></button>
     <button type="button" data-ext="zufall" aria-pressed="false" class="tile tile-zufall"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-zufall"/></svg><span class="t-num">3</span><span class="t-name"><span class="de">ZuFall</span><span class="en">Chance</span></span><span class="t-n">9 <span class="de">Karten</span><span class="en">cards</span></span></button>
-    <button type="button" data-ext="umhuellen" aria-pressed="false" class="tile tile-umhuellen"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-umhuellen"/></svg><span class="t-num">4</span><span class="t-name"><span class="de">Umhüllen</span><span class="en">Enfolding</span></span><span class="t-n">11 <span class="de">Karten</span><span class="en">cards</span><span class="t-new"><span class="de">neu</span><span class="en">new</span></span></span></button>
+    <button type="button" data-ext="umhuellen" aria-pressed="false" class="tile tile-umhuellen"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-umhuellen"/></svg><span class="t-num">4</span><span class="t-name"><span class="de">Umhüllen</span><span class="en">Enfolding</span></span><span class="t-n">11 <span class="de">Karten</span><span class="en">cards</span></span></button>
+    <button type="button" data-ext="fotos" aria-pressed="false" class="tile tile-fotos"><svg class="ic t-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-fotos"/></svg><span class="t-num">5</span><span class="t-name"><span class="de">Ins Bild setzen</span><span class="en">Framing</span></span><span class="t-n">23 <span class="de">Karten</span><span class="en">cards</span> <span class="t-new"><span class="de">neu</span><span class="en">new</span></span></span></button>
   </div>
 
   <div class="note-box intro-note">
-    <p><strong><span class="de">Diese Übersicht wächst.</span><span class="en">This overview is growing.</span></strong> <span class="de">Sie wird regelmäßig erweitert, jeweils mit einer neuen Gruppe von Formen. Stand November 2026: Erweiterung 1, Rhythmus im Material, Körper und Paararbeit. Erweiterung 2, Verlängern, Zeichnen mit verlängerten Werkzeugen. Erweiterung 3, ZuFall, Arbeiten mit Schwerkraft und Zufall. Erweiterung 4, Umhüllen, von außen nach innen bergen.</span><span class="en">It is extended regularly, each time with a new group of forms. Status November 2026: extension 1, rhythm in materials, body and pair work. Extension 2, Extended, drawing with extended tools. Extension 3, Chance, working with gravity and chance. Extension 4, Enfolding, sheltering from the outside in.</span></p>
-    <p><strong><span class="de">Neu: Erweiterung 4, Umhüllen.</span><span class="en">New: extension 4, Enfolding.</span></strong> <span class="de">Eine Burg mit Schutzwall malen, ein Nest bauen, Punkt und Umkreis zeichnen und dir einen Schutzraum einrichten, in dem du dich erholen kannst.</span><span class="en">Painting a castle with a protective wall, building a nest, drawing point and circle, and furnishing a shelter where you can recover.</span> <a href="#umhuellen"><span class="de">Direkt zu Erweiterung 4</span><span class="en">Go to extension 4</span></a></p>
+    <p><strong><span class="de">Diese Übersicht wächst.</span><span class="en">This overview is growing.</span></strong> <span class="de">Sie wird regelmäßig erweitert, jeweils mit einer neuen Gruppe von Formen. Stand November 2026: Erweiterung 1, Takt finden, Rhythmus im Material, Körper und Paararbeit. Erweiterung 2, Verlängern, Zeichnen mit verlängerten Werkzeugen. Erweiterung 3, ZuFall, Arbeiten mit Schwerkraft und Zufall. Erweiterung 4, Umhüllen, von außen nach innen bergen. Erweiterung 5, Ins Bild setzen, Motive finden und bauen.</span><span class="en">It is extended regularly, each time with a new group of forms. Status November 2026: extension 1, Finding the beat, rhythm in materials, body and pair work. Extension 2, Extending, drawing with extended tools. Extension 3, Chance, working with gravity and chance. Extension 4, Enfolding, sheltering from the outside in. Extension 5, Framing, finding and building subjects.</span></p>
+    <p><strong><span class="de">Neu: Erweiterung 5, Ins Bild setzen.</span><span class="en">New: extension 5, Framing.</span></strong> <span class="de">23 Karten zur Arbeit mit Fotos, vom Weg in Etappen über den verrückten Frühstückstisch bis zum eingehüllten Baum. Neu ist auch der Ort „In der Klinik“, für Karten, die Patient:innen in der therapiefreien Zeit allein machen können.</span><span class="en">23 cards on working with photos, from the way in stages and the crazy breakfast table to the wrapped tree. Also new is the place "In the clinic", for cards patients can do on their own between therapy sessions.</span> <a href="#ins-bild-setzen"><span class="de">Direkt zu Erweiterung 5</span><span class="en">Go to extension 5</span></a></p>
         <p class="nl-row"><a class="nl-btn" href="https://earth-s-institute.com/newsletter"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#mail"/></svg><span class="de">Newsletter abonnieren</span><span class="en">Subscribe to the newsletter</span></a> <span class="de">, und du bekommst jede Erweiterung, sobald sie erscheint.</span><span class="en">, and you will get every extension as soon as it is published.</span></p>
   </div>
 
@@ -189,6 +201,7 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <button type="button" data-filter="plastisch" class="chip chip-m c-plastisch" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-plastisch"/></svg><span class="de">Plastisch</span><span class="en">Sculpting</span></button>
     <button type="button" data-filter="koerper" class="chip chip-m c-koerper" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-koerper"/></svg><span class="de">Körper</span><span class="en">Body</span></button>
     <button type="button" data-filter="paar" class="chip chip-m c-paar" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-paar"/></svg><span class="de">Zu zweit</span><span class="en">Together</span></button>
+    <button type="button" data-filter="fotografisch" class="chip chip-m c-fotografisch" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></button>
   </div>
 
   <p class="hint"><span class="de">Oder nach dem, was gerade gebraucht wird</span><span class="en">Or by what is needed right now</span></p>
@@ -201,6 +214,13 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <button type="button" data-need="weite" class="chip chip-n c-weite" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></button>
     <button type="button" data-need="verbindung" class="chip chip-n c-verbindung" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></button>
     <button type="button" data-need="schutz" class="chip chip-n c-schutz" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></button>
+    <button type="button" data-need="aufbruch" class="chip chip-n c-aufbruch" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-aufbruch"/></svg><span class="de">Aufbruch</span><span class="en">Setting out</span></button>
+  </div>
+
+  <p class="hint"><span class="de">Oder nach dem Ort</span><span class="en">Or by place</span></p>
+  <div class="filters" id="filter-place" role="group" aria-label="Nach Ort filtern / Filter by place">
+    <button type="button" data-place="alle" class="chip chip-p c-alle" aria-pressed="true"><span class="de">Überall</span><span class="en">Anywhere</span></button>
+    <button type="button" data-place="klinik" class="chip chip-p c-klinik" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></button>
   </div>
 
   
@@ -211,7 +231,7 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
   <section id="rhythmus-section" class="ext-sec" data-sec="rhythmus"><header class="band band-rhythmus" id="rhythmus">
     <div class="band-in"><svg class="ic band-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-rhythmus"/></svg>
       <div><p class="band-num"><span class="de">Erweiterung 1</span><span class="en">Extension 1</span></p>
-      <h2 class="band-title"><span class="de">Rhythmus</span><span class="en">Rhythm</span></h2>
+      <h2 class="band-title"><span class="de">Takt finden</span><span class="en">Finding the beat</span></h2>
       <p class="band-sub"><span class="de">Im Material, im Körper und zu zweit</span><span class="en">In material, body and pair work</span></p></div>
     </div></header>
 
@@ -534,7 +554,7 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
   <header class="band band-extended" id="extended">
     <div class="band-in"><svg class="ic band-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-extended"/></svg>
       <div><p class="band-num"><span class="de">Erweiterung 2</span><span class="en">Extension 2</span></p>
-      <h2 class="band-title"><span class="de">Verlängern</span><span class="en">Extended</span></h2>
+      <h2 class="band-title"><span class="de">Verlängern</span><span class="en">Extending</span></h2>
       <p class="band-sub"><span class="de">Zeichnen mit verlängerten Werkzeugen</span><span class="en">Drawing with extended tools</span></p></div>
     </div></header>
   <p class="lead"><span class="de">Denken endet nicht an der Hand. Sobald ein Werkzeug zwischen dir und dem Papier liegt, wird es Teil deiner Wahrnehmung. Fast alles kann dieses Werkzeug sein: ein Halm, ein Zweig, ein Bündel Gras, eine Feder, eine raue Oberfläche unter dem Blatt. Jedes Material antwortet anders. Die Spur zeigt dir, was zwischen Hand und Material passiert ist.</span><span class="en">Thinking reaches past the hand. As soon as a tool sits between you and the paper, it becomes part of how you perceive. Almost anything can be that tool, a grass stalk, a twig, a bundle of grass, a feather, a rough surface under the sheet. Every material answers in its own way. The trace shows you what happened between hand and material.</span></p>
@@ -971,13 +991,346 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
   </div>
   </section>
 
+  <section id="fotos-section" class="ext-sec" data-sec="fotos">
+  <header class="band band-fotos" id="ins-bild-setzen">
+    <div class="band-in"><svg class="ic band-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#x-fotos"/></svg>
+      <div><p class="band-num"><span class="de">Erweiterung 5</span><span class="en">Extension 5</span></p>
+      <h2 class="band-title"><span class="de">Ins Bild setzen</span><span class="en">Framing</span></h2>
+      <p class="band-sub"><span class="de">Motive finden und bauen</span><span class="en">Finding and building subjects</span></p></div>
+    </div></header>
+  <p class="lead"><span class="de">Fotografieren heißt, einen Ausschnitt zu wählen. Du entscheidest, was in den Rahmen kommt und was draußen bleibt. Manchmal findest du dein Motiv, manchmal baust du es erst, am Frühstückstisch oder draußen unter Bäumen. Das Handy hast du ohnehin dabei. So wird jeder Ort zum Atelier, auch das eigene Treppenhaus.</span><span class="en">Photographing means choosing a frame. You decide what goes inside it and what stays outside. Sometimes you find your subject, sometimes you build it first, at the breakfast table or outside under the trees. Your phone is already in your pocket. So any place can become a studio, even your own stairwell.</span></p>
+  <p class="hand hand-f"><span class="de">Was fällt dir auf, wenn du genauer hinschaust?</span><span class="en">What do you notice when you look more closely?</span></p>
+  <div class="klinik-box" id="klinik">
+    <h3><svg class="ic" style="width:22px;height:22px;vertical-align:-4px;margin-right:6px" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">Neu: der Ort „In der Klinik“</span><span class="en">New: the place "In the clinic"</span></h3>
+    <p><span class="de">In der Klinik liegen zwischen den Therapiestunden oft lange Stunden. Für genau diese Zeit sind die Karten mit diesem Zeichen gedacht. Patient:innen machen sie allein, wann immer sie Lust haben, und finden darin etwas, das sie anspricht und auf eigene Ideen bringt. Die Behandlung bleibt beim Team, die Karten begleiten sie und werden mit dem Team abgestimmt. Jede Station hat eigene Regeln zu Handy, Material und Fotos, und die gelten immer zuerst.</span><span class="en">In a clinic, the hours between therapy sessions can be long. The cards with this sign are made for exactly that time. Patients do them on their own, whenever they feel like it, and find something that speaks to them and sparks their own ideas. Treatment stays with the care team, the cards accompany it and are agreed with the team. Every ward has its own rules on phones, materials and photos, and those always come first.</span></p>
+    <p><span class="de">Mitpatient:innen, Personal, Namensschilder, Unterlagen und Bildschirme bleiben außerhalb des Bildes. Die Fotos bleiben auf dem eigenen Gerät. Ist das Handy abgegeben, geht es mit einer Sofortbildkamera über die Therapeutin oder mit Stift und Papier.</span><span class="en">Fellow patients, staff, name tags, records and screens stay out of frame. The photos stay on the person's own device. If the phone has been handed in, an instant camera through the therapist works, or pencil and paper.</span></p>
+  </div>
+  <div class="grid" id="grid-fotos">
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="aufbruch weite" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Der Weg in Etappen</span><span class="en">The way in stages</span></div>
+        <div class="tags"><span class="de">Annäherung, ein Schritt pro Tag</span><span class="en">Approaching, one step a day</span></div>
+        <div class="needs"><span class="nd nd-aufbruch" title="Aufbruch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-aufbruch"/></svg><span class="de">Aufbruch</span><span class="en">Setting out</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Jeden Tag ein Foto, jedes ein Stück weiter weg vom Rückzugsort. Sofa, Zimmertür, Treppenhaus, Haustür, Straßenecke. Das Ziel darf unscharf bleiben, auch im Kopf. Die Sache, die wartet, fotografierst du nie.</span><span class="en">One photo a day, each a little further from the place of retreat. Sofa, bedroom door, stairwell, front door, street corner. The destination may stay blurry, in your head too. The thing that's waiting never gets photographed.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Rückzug, nach Krankheit, wenn das Rausgehen schwerfällt</span><span class="en">With withdrawal, after illness, when going out feels hard</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Pausentage gehören dazu und bleiben unkommentiert. Ein Schritt zurück ergibt auch ein Bild.</span><span class="en">Days off belong to it and get no comment. A step back makes a picture too.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Vom Zimmer bis in den Klinikgarten, Schritt für Schritt und in Absprache mit der Station.</span><span class="en">From the room out to the clinic garden, step by step and agreed with the ward.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Ein Wort zurück</span><span class="en">One word back</span></div>
+        <div class="tags"><span class="de">Kontakt ohne Druck</span><span class="en">Contact without pressure</span></div>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Jemand schickt ein Foto, du antwortest mit genau einem Wort. Das Wort gehört zum Bild, zu Licht, Farbe, Material oder Form. Lob für den Fortschritt lässt du weg. So bleibt der Kontakt leicht, und die Aufmerksamkeit liegt beim Sehen.</span><span class="en">Someone sends a photo and you reply with exactly one word. The word belongs to the picture, to light, colour, material or form. Praise for progress stays out. That keeps the contact light, and attention stays with seeing.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Zwischen zwei Terminen, nach Absagen, bei Menschen, denen gerade die Worte fehlen</span><span class="en">Between sessions, after cancellations, with people who have few words right now</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Kläre vorher, wie schnell du antwortest und auf welchem Weg die Bilder kommen.</span><span class="en">Agree beforehand how quickly you'll reply and which channel the pictures come through.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="beruhigung ordnung" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Dasselbe Fenster</span><span class="en">The same window</span></div>
+        <div class="tags"><span class="de">Wiederkehr, Zeit sichtbar machen</span><span class="en">Return, making time visible</span></div>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Eine Woche lang fotografierst du jeden Tag denselben Ausblick, zur selben Uhrzeit, vom selben Platz. Was sich verändert, bringen Wetter, Licht und Jahreszeit. Am Ende legst du die Bilder in eine Reihe.</span><span class="en">For a week you photograph the same view every day, at the same time, from the same spot. Whatever changes comes from the weather, the light and the season. At the end you lay the pictures out in a row.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Unruhe, wenn die Tage verschwimmen, als stiller Rhythmus im Alltag</span><span class="en">With restlessness, when the days blur together, as a quiet rhythm in everyday life</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Fenster mit Blick in fremde Wohnungen meiden.</span><span class="en">Avoid windows that look into other people's homes.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Geht auch vom Bett aus. Fotografiert werden Himmel und Ferne, nie die Fenster gegenüber.</span><span class="en">Works from bed too. Sky and distance get photographed, never the windows opposite.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Spiegelungen sammeln</span><span class="en">Collecting reflections</span></div>
+        <div class="tags"><span class="de">Die Welt ein zweites Mal</span><span class="en">The world a second time</span></div>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Pfützen, Schaufenster, nasse Straßen, ein Löffel, die Kaffeetasse. Du suchst Flächen, in denen sich etwas spiegelt, und fotografierst nur das Spiegelbild. Vertrautes kippt, oben und unten tauschen manchmal den Platz.</span><span class="en">Puddles, shop windows, wet streets, a spoon, your coffee cup. You look for surfaces that reflect something and photograph only the reflection. Familiar things tip over, and sometimes up and down trade places.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Wenn alles festgefahren wirkt, zum Wiederentdecken der eigenen Umgebung</span><span class="en">When everything feels stuck, to rediscover your own surroundings</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Wer gerade schwer bei sich ankommt, fotografiert besser Dinge als das eigene Spiegelbild.</span><span class="en">Anyone struggling to feel at home in themselves right now is better off photographing things than their own reflection.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="erdung" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Ganz nah ran</span><span class="en">Up close</span></div>
+        <div class="tags"><span class="de">Material, Oberfläche, Gegenwart</span><span class="en">Material, surface, the present</span></div>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Rinde, Rost, ein Stück Brot, die Wolle eines Pullovers. Fass es erst an, dann gehst du mit dem Handy so nah heran, wie das Bild gerade noch scharf wird. Aus der Nähe verliert ein Ding seinen Namen und wird zu Struktur.</span><span class="en">Bark, rust, a piece of bread, the wool of a jumper. Touch it first, then move in with your phone as close as the picture will still stay sharp. Up close, a thing loses its name and turns into texture.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Grübeln, wenn die Gedanken weit weg sind und der Körper zurückkommen soll</span><span class="en">With brooding, when thoughts are far away and the body should come back</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Ekelt sich jemand vor einer Oberfläche, wählt er eine andere, ohne Diskussion.</span><span class="en">If a surface disgusts someone, they pick another, no discussion.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Mit den eigenen Sachen, dem Teebecher, der mitgebrachten Decke, einem Blatt aus dem Klinikgarten.</span><span class="en">With your own things, your tea mug, the blanket you brought, a leaf from the clinic garden.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="schutz" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Der eigene Schatten</span><span class="en">Your own shadow</span></div>
+        <div class="tags"><span class="de">Sich zeigen, ohne Gesicht</span><span class="en">Showing yourself, faceless</span></div>
+        <div class="needs"><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Statt eines Selfies fotografierst du deinen Schatten. Auf dem Gehweg, an einer Hauswand, über einer Treppe. Morgens wird er lang und mittags kurz, er knickt an Kanten und wandert über Dinge. Du bist im Bild und trotzdem geschützt.</span><span class="en">Instead of a selfie you photograph your shadow. On the pavement, on a wall, across a flight of stairs. It grows long in the morning and short at noon, it bends at edges and travels over things. You're in the picture and still protected.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Wenn das eigene Gesicht gerade zu viel ist, bei Scham, bei Unsicherheit über das Selbstbild</span><span class="en">When your own face feels like too much right now, with shame, with an unsettled self-image</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Bei belastetem Körperbild sprichst du über Licht und Ort, die Form des Körpers bleibt außen vor.</span><span class="en">With a burdened body image, talk about light and place and leave the shape of the body aside.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Im Flur oder im Garten, wenn gerade niemand vorbeikommt.</span><span class="en">In the corridor or the garden, at a moment when nobody is passing.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="weite beruhigung" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Eine Farbe am Tag</span><span class="en">One colour a day</span></div>
+        <div class="tags"><span class="de">Der Blick geht nach außen</span><span class="en">Looking outward</span></div>
+        <div class="needs"><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Morgens legst du eine Farbe fest, Gelb zum Beispiel. Den Tag über fotografierst du alles, was diese Farbe trägt. Einen Briefkasten, ein Blatt, einen Schnürsenkel. Abends liegt eine kleine Sammlung vor dir.</span><span class="en">In the morning you choose a colour, yellow for instance. During the day you photograph everything that carries it. A postbox, a leaf, a shoelace. In the evening a small collection lies in front of you.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Grübelschleifen, bei wenig Antrieb, für Kinder als Spiel auf dem Schulweg</span><span class="en">With circling thoughts, with low drive, for children as a game on the way to school</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Eine Farbe, die starke Erinnerungen weckt, darf getauscht werden.</span><span class="en">A colour that wakes strong memories may be swapped.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Flure und Aufenthaltsräume geben mehr Farbe her, als man denkt.</span><span class="en">Corridors and common rooms hold more colour than you'd expect.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="erdung aufbruch">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Aus dem Bauch fotografieren</span><span class="en">Shooting from the hip</span></div>
+        <div class="tags"><span class="de">Kontrolle abgeben</span><span class="en">Handing over control</span></div>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="nd nd-aufbruch" title="Aufbruch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-aufbruch"/></svg><span class="de">Aufbruch</span><span class="en">Setting out</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Das Handy auf Bauchhöhe, ohne aufs Display zu schauen. Du gehst ein Stück und drückst ab, wann immer dein Körper es will. Erst zu Hause schaust du die Bilder an. Schiefe Horizonte und angeschnittene Dinge sind willkommen.</span><span class="en">Phone at belly height, eyes off the screen. You walk a little and press the shutter whenever your body wants to. You look at the pictures only once you're home. Crooked horizons and cut-off things are welcome.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Perfektionismus, wenn jedes Bild sofort bewertet wird</span><span class="en">With perfectionism, when every picture gets judged straight away</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">In der Nähe fremder Menschen die Kamera nach unten oder zur Seite halten.</span><span class="en">Near strangers, point the camera down or to the side.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="verbindung weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Mischtechnik</span><span class="en">Mixed media</span></div>
+        <div class="title"><span class="de">Ins Foto malen</span><span class="en">Painting into a photo</span></div>
+        <div class="tags"><span class="de">Vom Bild zum Bild</span><span class="en">From picture to picture</span></div>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Ein eigenes Foto, ausgedruckt, matt, gern in Schwarzweiß. Du malst und zeichnest hinein, ergänzt, deckst ab, setzt Farbe dorthin, wo sie fehlt. Das Foto hält fest, was war. Die Farbe zeigt, was du daraus machst.</span><span class="en">One of your own photos, printed, matte, ideally in black and white. You paint and draw into it, add, cover, put colour where it's missing. The photo holds what was. The colour shows what you make of it.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Als Brücke vom Fotografieren zum Gestalten, wenn ein Bild weiterarbeiten will</span><span class="en">As a bridge from photographing to making, when a picture wants to keep working</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Fotos mit anderen Menschen nur mit deren Einverständnis bearbeiten, alte Familienfotos immer als Kopie.</span><span class="en">Work on photos of other people only with their consent, and always use copies of old family photos.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="ordnung" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Die Reihe legen</span><span class="en">Laying out the row</span></div>
+        <div class="tags"><span class="de">Eine Woche als Geschichte</span><span class="en">A week as a story</span></div>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Am Ende einer Woche druckst du die Fotos klein aus oder legst sie auf dem Tablet nebeneinander. Du ordnest sie, bis eine Folge entsteht, die sich richtig anfühlt. Die Reihenfolge der Aufnahme ist nur eine Möglichkeit. Fehlt ein Bild, entsteht eine Lücke, und die darf bleiben.</span><span class="en">At the end of a week you print the photos small or lay them side by side on a tablet. You arrange them until a sequence feels right. The order you took them in is just one option. If a picture is missing, a gap appears, and it can stay.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Zum Abschluss jeder Fotoserie, in der Nachbesprechung</span><span class="en">To close any photo series, in the debrief</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Die Deutung gehört der Person, die fotografiert hat.</span><span class="en">The interpretation belongs to the person who took the pictures.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Ein guter Abschluss vor der Entlassung. Die Reihe darf mit nach Hause.</span><span class="en">A good close before discharge. The row can come home with you.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="zeichnerisch" data-need="schutz verbindung" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-zeichnerisch"/></svg><span class="de">Zeichnerisch</span><span class="en">Drawing</span></div>
+        <div class="title"><span class="de">Das Bild, das fehlt</span><span class="en">The missing picture</span></div>
+        <div class="tags"><span class="de">Was sich der Kamera entzog</span><span class="en">What escaped the camera</span></div>
+        <div class="needs"><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Manches ließ sich nicht fotografieren, weil es zu nah war, zu schwer oder schon vorbei. Du zeichnest es in einen leeren Rahmen, ungefähr so, wie das Foto ausgesehen hätte. Oder du lässt den Rahmen leer und schreibst ein Wort darunter.</span><span class="en">Some things resisted the camera because they were too close, too heavy, or already over. You draw it into an empty frame, roughly the way the photo would have looked. Or you leave the frame empty and write one word beneath it.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Am Ende einer Serie, wenn ein Bild fehlt</span><span class="en">At the end of a series, when a picture is missing</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Die Leerstelle muss niemand füllen. Ein leerer Rahmen ist auch eine Antwort.</span><span class="en">Nobody has to fill the gap. An empty frame is an answer too.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Für alles, was in der Klinik nicht fotografiert werden darf.</span><span class="en">For everything that has to stay unphotographed in the clinic.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="aufbruch weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Inszeniert</span><span class="en">Staged</span></div>
+        <div class="title"><span class="de">Der verrückte Frühstückstisch</span><span class="en">The crazy breakfast table</span></div>
+        <div class="tags"><span class="de">Das Gewohnte verschieben</span><span class="en">Shifting the familiar</span></div>
+        <div class="needs"><span class="nd nd-aufbruch" title="Aufbruch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-aufbruch"/></svg><span class="de">Aufbruch</span><span class="en">Setting out</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Deck deinen Frühstückstisch einmal ganz anders als sonst. Den Teller auf die andere Seite, die Tasse auf ein Buch, die Marmelade in den Eierbecher. Dann kommt etwas Verrücktes dazu, das dort nichts verloren hat, ein Gummistiefel, eine Muschel, ein Spielzeugdinosaurier. Fotografier den Tisch, bevor du frühstückst.</span><span class="en">Set your breakfast table completely differently from usual. The plate on the other side, the cup on a book, the jam in an egg cup. Then add something crazy that has no business being there, a rain boot, a shell, a toy dinosaur. Photograph the table before you eat.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Wenn der Alltag festgefahren ist, bei Routinen, die nur noch funktionieren</span><span class="en">When everyday life feels stuck, with routines that merely run</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Wer gerade sehr erschöpft ist, verändert nur eine einzige Sache. Das genügt.</span><span class="en">Anyone very exhausted right now changes just one single thing. That's enough.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="ordnung verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Inszeniert</span><span class="en">Staged</span></div>
+        <div class="title"><span class="de">Stillleben aus dem Alltag</span><span class="en">A still life from everyday things</span></div>
+        <div class="tags"><span class="de">Dinge ins Gespräch bringen</span><span class="en">Getting things talking</span></div>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Du sammelst ein paar Gegenstände aus deiner Wohnung, die sonst nie nebeneinanderliegen. Ein Schlüssel, eine Zitrone, eine Haarbürste, ein Brief. Du stellst sie zusammen und rückst sie hin und her, bis sie etwas miteinander zu tun haben. Dann fotografierst du sie, gern auf einem ruhigen Untergrund.</span><span class="en">You gather a few objects from your home that never usually sit side by side. A key, a lemon, a hairbrush, a letter. You put them together and shift them around until they have something to do with each other. Then you photograph them, ideally on a calm background.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Um Beziehungen sichtbar zu machen, zwischen Dingen und manchmal zwischen Menschen</span><span class="en">To make relationships visible, between things and sometimes between people</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Frag nach der Bedeutung der Gegenstände und überlass sie der Person.</span><span class="en">Ask what the objects mean, and leave the meaning to the person.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="aufbruch ordnung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Mischtechnik</span><span class="en">Mixed media</span></div>
+        <div class="title"><span class="de">Zeichnen, fotografieren, weiterzeichnen</span><span class="en">Draw, photograph, draw on</span></div>
+        <div class="tags"><span class="de">Jede Fassung bleibt erhalten</span><span class="en">Every version stays</span></div>
+        <div class="needs"><span class="nd nd-aufbruch" title="Aufbruch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-aufbruch"/></svg><span class="de">Aufbruch</span><span class="en">Setting out</span></span><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Du fotografierst deine Zeichnung. Dann änderst du etwas und fotografierst wieder, änderst weiter, fotografierst wieder. So viele Runden, wie du magst. Weil jeder Zustand gespeichert ist, darfst du mutig übermalen oder sogar zerschneiden. Am Ende schaust du die Bilder hintereinander an wie einen kleinen Film.</span><span class="en">You photograph your drawing. Then you change something and photograph again, change more, photograph again. As many rounds as you like. Since every state is saved, you can boldly paint over it or even cut it up. At the end you flick through the pictures like a little film.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Perfektionismus, wenn etwas „schon gut genug“ ist und sich trotzdem bewegen will</span><span class="en">With perfectionism, when something feels "good enough" yet still wants to move</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Wer an einer Fassung hängt, darf dort aufhören.</span><span class="en">Anyone attached to one version may stop right there.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="erdung weite">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Inszeniert</span><span class="en">Staged</span></div>
+        <div class="title"><span class="de">Ein Objekt aus Blättern</span><span class="en">An object made of leaves</span></div>
+        <div class="tags"><span class="de">Bauen mit dem, was da liegt</span><span class="en">Building with what's there</span></div>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Draußen sammelst du, was der Boden hergibt. Blätter, Zweige, Kastanien, Steine, Moos. Daraus baust du ein kleines Objekt, eine Spirale oder einen winzigen Turm. Du fotografierst es und lässt es liegen. Wind und Regen machen den Rest.</span><span class="en">Outside you gather whatever the ground offers. Leaves, twigs, chestnuts, stones, moss. From these you build a small object, a spiral or a tiny tower. You photograph it and leave it where it is. Wind and rain do the rest.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Nach langem Drinnensein, bei Unruhe, mit Kindern und Familien</span><span class="en">After a long time indoors, with restlessness, with children and families</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Nimm nur, was schon am Boden liegt, und achte auf Schutzgebiete.</span><span class="en">Take only what's already on the ground, and respect nature reserves.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="schutz verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Inszeniert</span><span class="en">Staged</span></div>
+        <div class="title"><span class="de">Einen Baum einhüllen</span><span class="en">Wrapping a tree</span></div>
+        <div class="tags"><span class="de">Fürsorge nach außen tragen</span><span class="en">Carrying care outward</span></div>
+        <div class="needs"><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Du suchst dir einen Baum, der dich anspricht. Eine Weile schaust du ihn an und legst die Hände an die Rinde. Dann wickelst du ein schönes Tuch um seinen Stamm, locker, so wie es zu ihm passt. Fotografier ihn eingehüllt und nimm das Tuch danach wieder mit.</span><span class="en">You find a tree that speaks to you. You look at it for a while and lay your hands on the bark. Then you wrap a beautiful cloth around its trunk, loosely, in a way that suits it. Photograph it wrapped, and take the cloth home with you afterwards.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Als Brücke zur Erweiterung Umhüllen, wenn jemand leichter für andere sorgt als für sich selbst</span><span class="en">As a bridge to the Enfolding extension, when someone finds it easier to care for others than for themselves</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Nur Bäume, an die du ohne Schaden herankommst, ohne Nägel und Klebeband. Auf Privatgrund erst fragen.</span><span class="en">Only trees you can reach without harm, with no nails and no tape. On private land, ask first.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="verbindung schutz">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Inszeniert</span><span class="en">Staged</span></div>
+        <div class="title"><span class="de">Das geliebte Kleidungsstück</span><span class="en">A beloved piece of clothing</span></div>
+        <div class="tags"><span class="de">Liebe, die man sehen kann</span><span class="en">Love you can see</span></div>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Du suchst ein Kleidungsstück, das du liebst. Den alten Pullover, das Kleid von damals, die Jacke, die schon viel mitgemacht hat. Du legst es schön hin und schmückst es mit Liebe, mit Blüten, Bändern, kleinen Fundstücken, vielleicht einem Zettel. Dann fotografierst du es, als wäre es ein Porträt.</span><span class="en">You choose a piece of clothing you love. The old jumper, the dress from back then, the jacket that has been through a lot. You lay it out beautifully and decorate it with love, with flowers, ribbons, small finds, perhaps a note. Then you photograph it as if it were a portrait.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Abschied und Trauer, nach Trennungen, wenn Erinnerungen einen Ort brauchen. Und um sich selbst zu würdigen, über das, was man trägt</span><span class="en">With farewells and grief, after separations, when memories need a place. And as a way of honouring yourself through what you wear</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Kleidung von Verstorbenen kann viel auslösen, lass dir Zeit. Der Schmuck lässt sich danach wieder abnehmen.</span><span class="en">Clothing of someone who has died can stir a lot, so take your time. The decorations come off again afterwards.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="erdung" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Eine Serie für die eigenen Füße</span><span class="en">A series for your own feet</span></div>
+        <div class="tags"><span class="de">Die Füße ehren, die dich tragen</span><span class="en">Honouring the feet that carry you</span></div>
+        <div class="needs"><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Deine Füße tragen dich jeden Tag und bekommen selten einen Blick. Eine Woche lang widmest du ihnen eine Fotoserie. Barfuß im Gras, in den Lieblingssocken, auf kalten Fliesen, im Herbstlaub, in der Badewanne. Vor jedem Bild spürst du kurz, wie sie gerade stehen.</span><span class="en">Your feet carry you every day and rarely get a look. For a week you dedicate a photo series to them. Barefoot in the grass, in your favourite socks, on cold tiles, in autumn leaves, in the bath. Before each picture you take a moment to feel how they're standing right now.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Zur Erdung, bei Grübeln und Kopflastigkeit, nach langem Sitzen. Wer mit dem eigenen Körper hadert, findet über die Füße oft einen freundlichen Anfang</span><span class="en">For grounding, with brooding and living in your head, after long hours of sitting. For anyone at odds with their body, the feet are often a friendly place to start</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Wer seine Füße ungern zeigt, fotografiert Schuhe oder Fußspuren. Fußfotos bleiben privat, im Netz werden sie leicht missbraucht.</span><span class="en">Anyone who dislikes showing their feet photographs shoes or footprints instead. Foot photos stay private, since they're easily misused online.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">In Klinik-Socken, auf dem Linoleum, auf dem Rasen im Garten.</span><span class="en">In hospital socks, on the linoleum, on the lawn in the garden.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="beruhigung weite" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Das liebste Licht</span><span class="en">Your favourite light</span></div>
+        <div class="tags"><span class="de">Wiederfinden, was dich wärmt</span><span class="en">Finding what warms you</span></div>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Welches Licht magst du am liebsten? Das schräge Morgenlicht in der Küche, das Gold kurz vor Sonnenuntergang, eine Kerze im dunklen Zimmer. Du gehst auf die Suche, bis du es findest, und fotografierst es. Oft verrät die Suche mehr als das Bild, wann du wo bist und was dir guttut.</span><span class="en">Which light do you love most? The slanting morning light in the kitchen, the gold just before sunset, a candle in a dark room. You go looking until you find it, and photograph it. Often the search reveals more than the picture, where you are at what time, and what does you good.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Erschöpfung und gedrückter Stimmung, in der dunklen Jahreszeit, zum Aufspüren eigener Kraftquellen</span><span class="en">With exhaustion and low mood, in the dark season, to track down your own sources of strength</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Nie direkt in die Sonne schauen oder fotografieren. Wer noch kein liebstes Licht kennt, sammelt erst einmal verschiedene.</span><span class="en">Never look or point the camera straight into the sun. Anyone without a favourite light yet starts by collecting different ones.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Im Klinikzimmer suchen, zu verschiedenen Tageszeiten. Zu merken, wann es selbst dort schön wird, tut gut.</span><span class="en">Look for it in the clinic room, at different times of day. Noticing when even this place turns beautiful does you good.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="verbindung">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Brücken und Übergänge</span><span class="en">Bridges and crossings</span></div>
+        <div class="tags"><span class="de">Was zwei Seiten verbindet</span><span class="en">What connects two sides</span></div>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Brücken, Stege, Trittsteine im Bach, eine Türschwelle, ein Zebrastreifen. Du fotografierst Orte, an denen etwas von einer Seite zur anderen führt. Manche Übergänge sind breit und sicher, andere schmal, wackelig oder halb zerfallen. Welcher passt gerade zu einer deiner Beziehungen, und wo stehst du darauf?</span><span class="en">Bridges, boardwalks, stepping stones in a stream, a threshold, a zebra crossing. You photograph places where something leads from one side to the other. Some crossings are wide and safe, others narrow, wobbly or half fallen apart. Which one fits one of your relationships right now, and where are you standing on it?</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Beziehungsthemen, in Paar- und Familienfragen, bei Konflikten im Team, bei Neuanfängen nach einer Trennung</span><span class="en">With relationship themes, in couple and family questions, with conflicts in a team, with new beginnings after a separation</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Mit Menschen in akuten Krisen wählst du Übergänge am Boden, eine Schwelle oder Trittsteine, und lässt hohe Brücken weg. Am Wasser genügt ein Foto vom Ufer.</span><span class="en">With people in acute crisis, choose crossings at ground level, a threshold or stepping stones, and leave out high bridges. Near water, a picture from the bank is enough.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="beruhigung weite" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Fotografisch</span><span class="en">Photography</span></div>
+        <div class="title"><span class="de">Wolken und Himmel</span><span class="en">Clouds and sky</span></div>
+        <div class="tags"><span class="de">Bewegung, die du in dir wiederfindest</span><span class="en">Movement you recognise in yourself</span></div>
+        <div class="needs"><span class="nd nd-beruhigung" title="Beruhigung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-beruhigung"/></svg><span class="de">Beruhigung</span><span class="en">Calm</span></span><span class="nd nd-weite" title="Weite und Loslassen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-weite"/></svg><span class="de">Weite und Loslassen</span><span class="en">Space and letting go</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Du legst dich hin oder setzt dich bequem und schaust eine Weile in den Himmel. Wolken ziehen, türmen sich auf, zerfasern, reißen auf. Dann fotografierst du, was du siehst, gern mehrmals hintereinander. Zu jedem Bild fragst du dich, welchem Gefühl, welcher Stimmung in dir diese Bewegung entspricht.</span><span class="en">You lie down or sit comfortably and look at the sky for a while. Clouds drift, pile up, fray, break open. Then you photograph what you see, ideally several times in a row. For each picture you ask yourself which feeling or mood in you this movement corresponds to.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Wenn Gefühle schwer zu benennen sind, bei Unruhe, zum Wahrnehmen von Stimmungen, die kommen und wieder gehen</span><span class="en">When feelings are hard to name, with restlessness, for noticing moods that come and go</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Nie in die Sonne schauen. Wer bei weitem, leerem Himmel unruhig wird, fotografiert ihn durch ein Fenster oder zwischen Bäumen.</span><span class="en">Never look into the sun. Anyone unsettled by a wide, empty sky photographs it through a window or between trees.</span></p>
+        <div class="label k"><span class="de">In der Klinik</span><span class="en">In the clinic</span></div><p><span class="de">Vom Bett, vom Fenster oder von der Bank im Klinikgarten.</span><span class="en">From the bed, the window or the bench in the clinic garden.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="ordnung erdung" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Inszeniert</span><span class="en">Staged</span></div>
+        <div class="title"><span class="de">Der Nachttisch als Stillleben</span><span class="en">The bedside table as a still life</span></div>
+        <div class="tags"><span class="de">Ein kleiner Ort, der dir gehört</span><span class="en">A small place that's yours</span></div>
+        <div class="needs"><span class="nd nd-ordnung" title="Ordnung und Grenze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-ordnung"/></svg><span class="de">Ordnung und Grenze</span><span class="en">Order and boundary</span></span><span class="nd nd-erdung" title="Erdung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-erdung"/></svg><span class="de">Erdung</span><span class="en">Grounding</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Der Nachttisch ist oft der einzige Platz, den du selbst gestaltest. Jeden Tag ordnest du ihn neu und legst ein Fundstück dazu, ein Blatt aus dem Garten, eine Postkarte, eine Orange. Dann fotografierst du ihn, immer aus derselben Höhe. Nach einigen Tagen zeigt die Reihe, wie sich etwas verändert.</span><span class="en">The bedside table is often the only spot you arrange yourself. Each day you rearrange it and add a found object, a leaf from the garden, a postcard, an orange. Then you photograph it, always from the same height. After a few days the row shows how things are changing.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei längeren Aufenthalten, wenn alles fremd ist und wenig in der eigenen Hand liegt</span><span class="en">During longer stays, when everything feels unfamiliar and little is in your own hands</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Medikamente, Befunde und Namensschilder räumst du vorher weg.</span><span class="en">Clear away medication, reports and name tags first.</span></p>
+      </div>
+    </article>
+    <article class="item" data-ext="fotos" data-medium="fotografisch" data-need="verbindung schutz" data-place="klinik">
+      <button class="head" type="button" aria-expanded="false">
+        <div class="medium"><svg class="ic mic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#m-fotografisch"/></svg><span class="de">Inszeniert</span><span class="en">Staged</span></div>
+        <div class="title"><span class="de">Ein Ding von zu Hause</span><span class="en">Something from home</span></div>
+        <div class="tags"><span class="de">Eine Brücke zwischen zwei Welten</span><span class="en">A bridge between two worlds</span></div>
+        <div class="needs"><span class="nd nd-verbindung" title="Verbindung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-verbindung"/></svg><span class="de">Verbindung</span><span class="en">Connection</span></span><span class="nd nd-schutz" title="Schutz und Erholung"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#n-schutz"/></svg><span class="de">Schutz und Erholung</span><span class="en">Safety and rest</span></span><span class="pk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#p-klinik"/></svg><span class="de">In der Klinik</span><span class="en">In the clinic</span></span></div><span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="body" hidden>
+        <p><span class="de">Du nimmst einen kleinen Gegenstand von zu Hause mit, eine Tasse, ein Stofftier, einen Stein vom Lieblingsweg. In der Klinik fotografierst du ihn an wechselnden Orten, auf dem Fensterbrett, im Garten, neben dem Tablett. Er war vorher da und geht hinterher mit dir zurück.</span><span class="en">You bring a small object from home, a mug, a soft toy, a stone from your favourite path. In the clinic you photograph it in changing places, on the windowsill, in the garden, next to the meal tray. It was there before and goes back home with you afterwards.</span></p>
+        <div class="label"><span class="de">Wann</span><span class="en">When</span></div><p><span class="de">Bei Heimweh, zu Beginn eines Aufenthalts, mit Kindern und Jugendlichen in der Klinik</span><span class="en">With homesickness, at the start of a stay, with children and teenagers in hospital</span></p>
+        <div class="label"><span class="de">Vorsicht</span><span class="en">Caution</span></div><p><span class="de">Wertvolles bleibt besser zu Hause. Ein Gegenstand, der verloren gehen darf, entlastet.</span><span class="en">Valuables are best left at home. An object you could bear to lose takes the pressure off.</span></p>
+      </div>
+    </article>
+  </div>
+
+  <div class="note-box caution"><svg class="ic warn-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#warn"/></svg>
+    <p><strong><span class="de">Vor jeder Übung mit Fotos</span><span class="en">Before every exercise with photos</span></strong></p>
+    <p><span class="de">Jede Karte lässt sich in der Therapie und im Coaching einsetzen. Was unter „Wann“ steht, sind Anhaltspunkte, du passt sie deinem Rahmen an. Fotos von anderen Menschen brauchen deren Zustimmung. Das gilt auch für Kinder und für Bilder, die nur privat verschickt werden. Fremde Gesichter, Autokennzeichen und Hausnummern bleiben außerhalb des Bildes oder werden unscharf. Wer Bilder per Messenger schickt, sollte wissen, wo sie gespeichert werden. Während der Übung darf das Handy im Flugmodus bleiben, die Kamera funktioniert trotzdem.</span><span class="en">Every card works in therapy and in coaching. What you find under "When" are pointers, and you adapt them to your setting. Photos of other people need their consent. That applies to children too, and to pictures that are only sent privately. Strangers' faces, number plates and house numbers stay out of frame or get blurred. Anyone sending pictures by messenger should know where they're stored. During the exercise the phone can stay in flight mode, and the camera still works.</span></p>
+  </div>
+  </section>
+
+
   <div class="teaser">
     <strong><span class="de">Die Sammlung wächst weiter</span><span class="en">The collection keeps growing</span></strong><br>
     <span class="de">Die nächste Erweiterung erscheint mit einem der kommenden Newsletter.</span><span class="en">The next extension arrives with one of the coming newsletters.</span><br><br>
     <span class="de">Wer keine Erweiterung verpassen will, abonniert den Newsletter über den Link oben.</span><span class="en">To catch every extension, subscribe to the newsletter using the link above.</span>
   </div>
 
-  <p class="count"><span class="de">Zuletzt erweitert: November 2026 (Erweiterung 4, Umhüllen)</span><span class="en">Last extended: November 2026 (extension 4, Enfolding)</span></p>
+  <p class="count"><span class="de">Zuletzt erweitert: November 2026 (Erweiterung 5, Ins Bild setzen)</span><span class="en">Last extended: November 2026 (extension 5, Framing)</span></p>
 
   <footer>
     <p>earth-s Institut · Prof. Hildrun Rolff · <span class="de">Stand: November 2026</span><span class="en">Status: November 2026</span></p>
@@ -993,7 +1346,9 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
   var mediumButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-medium button'));
   var needButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-need button'));
   var extButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-ext button'));
-  var extHeads = { rhythmus: document.getElementById('rhythmus-section'), extended: document.getElementById('ext-section'), zufall: document.getElementById('zufall-section'), umhuellen: document.getElementById('umhuellen-section') };
+  var placeButtons = Array.prototype.slice.call(document.querySelectorAll('#filter-place button'));
+  var place = 'alle';
+  var extHeads = { rhythmus: document.getElementById('rhythmus-section'), extended: document.getElementById('ext-section'), zufall: document.getElementById('zufall-section'), umhuellen: document.getElementById('umhuellen-section'), fotos: document.getElementById('fotos-section') };
   var ext = 'alle';
   var count = document.getElementById('count');
   var medium = 'alle';
@@ -1024,7 +1379,8 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
       var needs = (el.getAttribute('data-need') || '').split(' ');
       var needOk = need === 'alle' || needs.indexOf(need) !== -1;
       var extOk = ext === 'alle' || (el.getAttribute('data-ext') || 'rhythmus') === ext;
-      el.hidden = !(mediumOk && needOk && extOk);
+      var placeOk = place === 'alle' || el.getAttribute('data-place') === place;
+      el.hidden = !(mediumOk && needOk && extOk && placeOk);
     });
     Object.keys(extHeads).forEach(function (k) {
       if (extHeads[k]) extHeads[k].hidden = !(ext === 'alle' || ext === k);
@@ -1046,6 +1402,14 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
     b.addEventListener('click', function () {
       medium = b.getAttribute('data-filter');
       setPressed(mediumButtons, medium, 'data-filter');
+      apply();
+    });
+  });
+
+  placeButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      place = b.getAttribute('data-place');
+      setPressed(placeButtons, place, 'data-place');
       apply();
     });
   });
