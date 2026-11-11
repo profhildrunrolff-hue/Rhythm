@@ -1450,6 +1450,8 @@ footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-si
   });
 
   var preferred = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+  var m = /[?&]lang=(de|en)\b/i.exec(window.location.search);
+  if (m) preferred = m[1].toLowerCase();
   setLang(preferred);
   apply();
 })();
